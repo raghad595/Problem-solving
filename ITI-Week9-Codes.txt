@@ -1,0 +1,304 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+//============ Example 1 ===============
+
+/*
+class Movable {
+public:
+	//Abstracted Methods:
+	virtual void moveUp() = 0;
+	virtual void moveDown() = 0;
+	virtual void moveLeft() = 0;
+	virtual void moveRight() = 0;
+};
+
+class MovablePoint : public Movable {
+private:
+	//Attributes:
+	int x, y, xSpeed, ySpeed;
+public:
+	//Constructors:
+	MovablePoint() {
+		x = y = xSpeed = ySpeed = 0;
+	}
+	MovablePoint(int a,int b,int c,int d) {
+		x = a;
+		y = b;
+		xSpeed = c;
+		ySpeed = d;
+	}
+
+	//Overriding Abstracted Methods:
+	void moveUp() {
+		y -= ySpeed;
+	}
+	void moveDown() {
+		y += ySpeed;
+	}
+	void moveLeft() {
+		x -= xSpeed;
+	}
+	void moveRight() {
+		x += xSpeed;
+	}
+};
+*/
+
+//============ Example 2 ===============
+
+/*
+EX 2:
+Create Abstracted Shape class with
+pure virtual function calcArea = 0;
+Then create three classes
+(rectangle, triangle, circle)
+And override the calcArea function
+
+*/
+
+/*
+class Shape{
+public:
+	virtual double calArea() = 0;
+	//poly:
+	//{
+	//	return 0;
+	//}
+};
+
+class Rectangle : public Shape{
+	int height;
+	int width;
+public:
+	Rectangle(){
+		this->height = 0;
+		this->width = 0;
+	}
+	Rectangle(int height, int width){
+		this->height = height;
+		this->width = width;
+	}
+	double calArea(){
+		cout << "Rectangle Area => ";
+		return (double)width * height;
+	}
+};
+
+class Triangle :public Shape{
+	int height;
+	int base;
+public:
+	Triangle(int height, int base) {
+		this->height = height;
+		this->base = base;
+	}
+	Triangle() {
+		height = 0;
+		base = 0;
+	}
+	double calArea() {
+		cout << "Triangle Area => ";
+		return 0.5 * height * base;
+	}
+};
+
+class Circle : public Shape
+{
+	int r;
+public:
+	Circle(){
+		this->r = 0;
+	}
+	Circle(int r){
+		this->r = r;
+	}
+	double calArea(){
+		cout << "Circle Area => ";
+		return 3.14 * r * r;
+	}
+};
+*/
+
+/*
+int main() {
+	//Shape s;
+
+	Rectangle r(5, 5);
+	Triangle t(5, 5);
+	Circle c(5);
+	cout << r.calArea() << endl;
+	cout << t.calArea() << endl;
+	cout << c.calArea() << endl;
+}
+*/
+
+//============ Example 3 ===============
+
+// Using Polymorphism
+
+/*
+Shape* getShape(int x)
+{
+	if (x == 1)
+		return new Rectangle(10, 10);
+	else if (x == 2)
+		return new Triangle(10, 10);
+	else
+		return new Circle(10);
+}
+
+class Operations{
+	Shape * s;
+public:
+	Operations(Shape *p){
+		s = p;
+	}
+	void getAreaDoubled(){
+		cout<<s->calArea()*2<<endl;
+	}
+};
+*/
+
+/*
+int main(){
+
+	//"============ in Stack ================" << endl;
+	/*
+	Rectangle r(10, 10);
+	Triangle t(10, 10);
+	Circle c(10);
+
+	Shape* p = &r;
+	cout << p->calArea() << endl;
+
+	p = &t;
+	cout << p->calArea() << endl;
+
+	p = &c;
+	cout << p->calArea() << endl;
+	*/
+
+	//"============ in Heap ================" << endl;
+
+	/*
+	Shape* r = new Shape;
+	cout << "r is pointing to a shape ,Area =  " << r->calArea() << endl; //0
+	delete r;
+
+	cout << "=========================================" << endl;
+	r = new Triangle(10, 10);
+	cout << "r is pointing to a triangle ,Area = " << r->calArea() << endl; //.5*10*10=50
+	delete r;
+
+	cout << "=========================================" << endl;
+	r = new Rectangle(10, 10);
+	cout << "r is pointing to a rectangle ,Area = " << r->calArea() << endl; //10*10=100
+	delete r;
+
+	cout << "=========================================" << endl;
+	r = new Circle(10);
+	cout << "r is pointing to a circle ,Area = " << r->calArea() << endl << endl; //3.14*10*10=314
+	delete r;
+	*/
+
+
+	//"=============== Get Shape ===============" << endl;
+
+	/*
+	Shape* s = getShape(1);
+	cout << s->calArea() << endl;
+
+	s = getShape(2);
+	cout << s->calArea() << endl;
+
+	s = getShape(3);
+	cout << s->calArea() << endl;
+	*/
+
+	//"=============== Operations ===============" << endl;
+	/*
+	Rectangle r(10, 10);
+	Triangle t(10, 10);
+	Circle c(10);
+	
+	Operations o(&r);   //&t or  &c
+	o.getAreaDoubled();
+	*/
+}
+*/
+
+//============ Quiz 1 ===============
+
+/*
+Create Abstracted Animal class with
+pure virtual function showType = 0;
+Then create three classes
+(Dolphin, Cat, Dog)
+And override the showType function to
+print the type
+
+*/
+
+/*
+class Animal {
+public:
+	virtual void showType() = 0;
+	//poly:
+	//{
+	//	cout << "Just Animal" << endl;
+	//}
+};
+
+class Dolphin : public Animal {
+public:
+	void showType() {
+		cout << "it is a Dolphin" << endl;
+	 }
+};
+
+class Cat : public Animal {
+public:
+	void showType() {
+		cout << "it is a Cat" << endl;
+	}
+};
+
+class Dog : public Animal {
+public:
+	void showType() {
+		cout << "it is a Dog" << endl;
+	}
+};
+*/
+
+
+/*
+int main() {
+	Dog d;
+	Cat c;
+	Dolphin p;
+	d.showType();
+	c.showType();
+	p.showType();
+}
+*/
+
+//============ Quiz 2 ===============
+
+// Using Polymorphism
+/*
+int main() {
+
+	Animal* a= new Dolphin;
+	a->showType();
+	a = new Dolphin;
+	a->showType();
+	a = new Dog;
+	a->showType();
+	a = new Cat;
+	a->showType();
+}
+*/
+

@@ -1,0 +1,207 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+//========== Assignment 8 Solution =========
+//Task 1
+
+/*class Animal {
+protected:
+	string name;
+public:
+	Animal(string name) {
+		this->name = name;
+	}
+	virtual void greets() = 0;
+};
+
+class Cat :public Animal {
+public:
+	Cat(string name):Animal(name) {
+		
+	}
+	void greets() {
+		cout << "Meow" << endl;
+	}
+
+};
+
+class Dog :public Animal {
+
+public:
+	Dog(string name) :Animal(name) {
+
+	}
+	void greets() {
+		cout << "Woof" << endl;
+	}
+	void greets(Dog another) {
+		cout << "Woooof" << endl;
+	}
+};
+
+class BigDog :public Dog {
+public:
+	BigDog(string name) :Dog(name) {
+
+	}
+	void greets() {
+		cout << "Woow" << endl;
+	}
+	void greets(Dog another) {
+		cout << "Wooooow" << endl;
+	}
+	void greets(BigDog another) {
+		cout << "Wooooooooooooow" << endl;
+	}
+};
+
+
+int main() {
+
+	Cat c("Lucy");
+	c.greets();
+	Dog D("Luka");
+	BigDog Another("Marly");
+	D.greets(Another);
+
+	return 0;
+}*/
+
+
+ 
+//==================================================
+
+/*
+Task 2:
+Vehicle, Truck and Bus Task:
+*/
+
+/*
+class Vehicle {
+protected:
+	//Attributes:
+	string model, registrationNumber;
+	int speed;
+	double fuelCapacity, fuelConsumption;
+public:
+	//Constructor:
+	Vehicle(string model, string registrationNumber, int speed, double fuelCapacity, double fuelConsumption) {
+		this->model = model;
+		this->registrationNumber = registrationNumber;
+		this->fuelCapacity = fuelCapacity;
+		this->speed = speed;
+		this->fuelConsumption = fuelConsumption;
+	}
+	//Setters:
+	void setModel(string model) {
+		this->model = model;
+	}
+	void setRegistrationNumber(string registrationNumber) {
+		this->registrationNumber = registrationNumber;
+	}
+	void setFuelCapacity(double fuelCapacity) {
+		this->fuelCapacity = fuelCapacity;
+	}
+	void setSpeed(int speed) {
+		this->speed = speed;
+	}
+	void setFuelConsumption(double fuelConsumption) {
+		this->fuelConsumption = fuelConsumption;
+	}
+
+	//Getters:
+	string getModel() {
+		return model;
+	}
+	string getRegistrationNumber() {
+		return registrationNumber;
+	}
+	int getSpeed() {
+		return speed;
+	}
+	double getFuelConsumption() {
+		return fuelConsumption;
+	}
+	double getFuelCapacity() {
+		return fuelCapacity;
+	}
+
+	//Methods:
+	double fuelNeeded(double distance) {
+		return fuelConsumption * distance;
+	}
+	double distanceCovered(int time) {
+		return (double) speed * time;
+	}
+	virtual void display() = 0;
+};
+
+class Truck : public Vehicle {
+private:
+	double cargoWeightLimit;
+public:
+
+	Truck(string model, string registrationNumber, int speed, double fuelCapacity, double fuelConsumption, double cargoWeightLimit) :
+		Vehicle(model, registrationNumber, speed, fuelCapacity, fuelConsumption){
+		this->cargoWeightLimit = cargoWeightLimit;
+	}
+
+	void setCargoWeightLimit(double cargoWeightLimit) {
+		this->cargoWeightLimit = cargoWeightLimit;
+	}
+
+	double getCargoWeightLimit() {
+		return cargoWeightLimit;
+	}
+
+	void display() {
+		cout << "Vehicle model: " << getModel() << endl;
+		cout << "Registration number: " << getRegistrationNumber() << endl;
+		cout << "Vehicle speed: " << getSpeed() << endl;
+		cout << "Fuel capacity: " << getFuelCapacity() << endl;
+		cout << "Fuel consumption: " << getFuelConsumption() << endl;
+		cout << "Cargo Weight Limit : " << cargoWeightLimit << endl;
+	}
+};
+
+class Bus : public Vehicle{
+private:
+	int numberOfPassengers;
+public:
+	Bus(string model, string registrationNumber, int speed, double fuelCapacity, double fuelConsumption, int numberOfPassengers) :
+		Vehicle(model, registrationNumber, speed, fuelCapacity, fuelConsumption) {
+		this->numberOfPassengers = numberOfPassengers;
+	}
+
+	void setNumberOfPassengers(int numberOfPassengers) {
+		this->numberOfPassengers = numberOfPassengers;
+	}
+	int getNumberOfPassengers() {
+		return numberOfPassengers;
+	}
+
+	void display() {
+		cout << "Vehicle model: " << getModel() << endl;
+		cout << "Registration number: " << getRegistrationNumber() << endl;
+		cout << "Vehicle speed: " << getSpeed() << endl;
+		cout << "Fuel capacity: " << getFuelCapacity() << endl;
+		cout << "Fuel consumption: " << getFuelConsumption() << endl;
+		cout << "Number Of Passengers : " << numberOfPassengers << endl;
+	}
+};
+
+int main() {
+
+
+	Vehicle* v = new Truck("BMW", "t45", 120, 30, 50,1000);
+	v->display();
+	cout << "======================================\n";
+	v = new Bus("Mer", "mr5", 120, 30, 50, 200);
+	v->display();
+
+}
+*/
+
+
+

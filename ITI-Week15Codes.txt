@@ -1,0 +1,209 @@
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <iterator>
+#include <queue>
+#include <vector>
+using namespace std;
+
+//================ Hash Table =======================
+//================= unordered_set ========================
+
+/*
+void showSet(unordered_set<int> mySet) {
+	unordered_set<int>::iterator it;
+	cout << "The set is: \n";
+	for (it = mySet.begin(); it != mySet.end(); it++) {
+		cout << *it << " ";
+	}
+	cout << endl << endl;
+}
+
+int main()
+{
+	unordered_set<int> mySet;
+	mySet.insert(10);
+	mySet.insert(20);
+	mySet.insert(30);
+	mySet.insert(40);
+	mySet.insert(50);
+	mySet.insert(60);
+//  only one 20 will be added to the set
+	mySet.insert(20);
+
+	//printing set
+	showSet(mySet);
+
+	// remove element with value 50
+	mySet.erase(50);
+	showSet(mySet);
+
+	// remove all elements less than 30 in s2
+	mySet.erase(mySet.begin(), mySet.find(30));
+	showSet(mySet);
+
+	// assigning the elements from s1 to s2
+	unordered_set<int> s2(mySet.begin(), mySet.end());
+	showSet(s2);
+
+}
+*/
+
+//==================== MAP =================
+
+/*
+void showMap(unordered_map<int, string> myMap) {
+	unordered_map<int, string>::iterator itr;
+	cout << "\nThe map is : \n";
+	cout << "\tKEY\tELEMENT\n";
+	for (itr = myMap.begin(); itr != myMap.end(); ++itr) {
+		cout << '\t' << itr->first
+			<< '\t' << itr->second << '\n';
+	}
+	cout << endl;
+}
+
+int main(){
+	unordered_map<int, string> myMap;
+	myMap.insert(pair<int, string>(1, "ahmed"));
+	myMap.insert(pair<int, string>(2, "abdo"));
+	myMap.insert(pair<int, string>(3, "mohamed"));
+	myMap.insert(pair<int, string>(4, "sara"));
+	myMap.insert(pair<int, string>(5, "amr"));
+	myMap.insert(pair<int, string>(6, "mai"));
+	myMap.insert(pair<int, string>(7, "ibrahim"));
+	myMap[8] = "sayed";
+
+	// printing map myMap
+	showMap(myMap);
+
+	// remove all elements less than key=3
+	myMap.erase(4);
+	showMap(myMap);
+
+	// remove element key=4
+	myMap.erase(myMap.begin(), myMap.find(3));
+	showMap(myMap);
+
+	// assigning the elements from myMap to m2
+	unordered_map<int, string> m2(myMap.begin(), myMap.end());
+
+	// printing map m2
+	showMap(m2);
+}
+*/
+
+//===================================================
+
+void DFS(int currentNode, int searchedNode, vector<vector<int>> graph, bool visited[]) {
+	visited[currentNode] = true;
+	if (currentNode == searchedNode) return;
+	cout << currentNode << " -> ";
+
+	for (int i = 0; i < graph[currentNode].size(); i++) {
+		int child = graph[currentNode][i];
+		if (!visited[child])
+			DFS(child, searchedNode, graph, visited);
+	}
+}
+
+void BFS(int currentNode, int searchedNode, vector<vector<int>> graph, bool visited[]) {
+	visited[currentNode] = true;
+	if (currentNode == searchedNode) return;
+	queue<int> q;
+	q.push(currentNode);
+
+	while (!q.empty())	{
+		currentNode = q.front();
+		cout << q.front() << " -> ";
+		for (int i = 0; i < graph[currentNode].size(); i++) {
+			int child = graph[currentNode][i];
+
+			if (!visited[child]) {
+				q.push(child);
+				visited[child] = true;
+			}
+		}
+		q.pop();
+	}
+}
+
+//Shortest Path Algorithm Using BFS in Unweighted Graph
+//======================================================
+void shortestPath(int currentNode, int searchedNode, vector<vector<int>> graph, bool visited[]) {
+	int start = currentNode;
+	visited[currentNode] = true;
+	queue<pair<int, int>> q;
+	q.push({ currentNode, 0 });
+	int  distance, child;
+	while (!q.empty()){
+		currentNode = q.front().first;
+		distance = q.front().second;
+		if (currentNode == searchedNode) {
+			cout << "The shortest path between ("
+				 << start << ") and (" << searchedNode
+				 << ") = " << distance << endl;
+			return;
+		}
+		for (int i = 0; i < graph[currentNode].size(); i++) {
+			child = graph[currentNode][i];
+			if (!visited[child]) {
+				q.push({ child, distance + 1 });
+				visited[child] = true;
+			}
+		}
+		q.pop();
+	}
+}
+
+//Path Using DFS will not be the shortest one
+//======================================================
+void pathByDFS(int currentNode, int searchedNode, vector<vector<int>> graph, bool visited[],int distance) {
+	visited[currentNode] = true;
+	if (currentNode == searchedNode) {
+		cout << "The path = " << distance << endl;
+		return;
+	}
+
+	for (int i = 0; i < graph[currentNode].size(); i++) {
+		int child = graph[currentNode][i];
+		if (!visited[child])
+			pathByDFS(child, searchedNode, graph, visited, distance + 1);
+	}
+}
+
+int main(){
+	//Graph Model Using Adjacent List (2D Vector)
+	//===========================================
+	int nodes, edges;
+	cout << "Enter number of nodes & edges :\n";
+	cin >> nodes >> edges;
+	vector<vector<int>> graph(nodes + 1);
+	int node1, node2;
+	for (int i = 1; i <= edges; i++) {
+		cout << "Enter edge number " << i << endl;
+		cin >> node1 >> node2;
+
+		graph[node1].push_back(node2);
+		graph[node2].push_back(node1);
+	}
+
+	//Printing Graph by 2d vector Model :
+	//===================================
+	for (int i = 1; i <= nodes; i++) {
+		cout << i << " ==>> ";
+		for (int j = 0; j < graph[i].size(); j++) {
+			cout << graph[i][j] << " | ";
+		}
+		cout << endl;
+	}
+
+	//Testing Graph Algorithms :
+	//===================================
+	bool* visited = new bool[nodes + 1] {};
+	//DFS(1, -1, graph, visited);
+	//BFS(1, -1, graph, visited);
+	//shortestPath(1, 2, graph, visited);
+	//pathByDFS(1, 2, graph, visited, 0);
+}

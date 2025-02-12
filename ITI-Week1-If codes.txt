@@ -1,0 +1,164 @@
+#include <iostream>
+using namespace std;
+
+/*
+	 EX 1 :
+			Create a program to Print "Hello World" .
+*/
+/*
+int main()
+{
+	cout << "Hello World";
+}
+*/
+
+//====================================================
+/*
+	 Quiz 1 :
+			Create a program to Print 
+			"Hello" 
+			"World" .
+*/
+/*
+int main()
+{
+	cout << "Hello\nWorld";
+}
+*/
+
+//=========================================================================================
+
+/*
+	 EX 2 :
+			Create a program to allow user enter 
+			a number and a character then print them .
+*/
+/*
+int main()
+{
+	cout << "please enter a number : \n";
+	int num;
+	cin >> num;
+	cout << "please enter a character : \n";
+	char c;
+	cin >> c;
+
+	cout << "your number is : " << num << " , and your char is : " << c << endl;
+}
+*/
+
+
+//=========================================================================================
+
+/*
+ Ex 3:
+ Write a program that char and print Capital or small
+
+*/
+	char c;
+	cin >> c;
+	if (c >= 'A' && c <= 'Z')
+		cout << "Capital Letter\n";
+	else
+		cout << "Small Letter\n";
+/*
+
+//=========================================================================================
+
+Ex 4:
+Write a program that a number and print even or odd
+*/
+
+/*
+int main()
+{
+	int x;
+	cin >> x;
+	if (x % 2 == 0) {
+		cout << "Even" << endl;
+	}
+	else {
+		cout << "Odd" << endl;
+	}
+}
+*/
+
+//=========================================================================================
+
+/*
+ EX 5:
+Write a program that take a number to 
+show if it is divided by 2 and 3
+*/
+
+/*
+int main()
+{
+	int x;
+	cin >> x;
+	if (x % 2 == 0 && x%3 == 0) {
+		cout << "Yes" << endl;
+	}
+	else {
+		cout << "No" << endl;
+	}
+}
+*/
+
+//=========================================================================================
+
+/*
+ Ex 6:
+ Write a program that take two numbers and print the max
+
+*/
+
+/*
+int main()
+{
+	int x,y;
+	cin >> x>>y;
+	if (x > y) {
+		cout << "Max = "<< x << endl;
+	}
+	else {
+		cout << "Max = "<< y << endl;
+	}
+}
+*/
+
+
+
+//=========================================================================================
+
+/*
+Quiz 3:
+Create a calculator
+Write a program that Take 2 integers 
+and char like(+,-,*,/) then print the result
+*/
+
+/*
+int main()
+{
+	int x,y;
+	char c;
+	cout << "Please enter two numbers separted by operator :" << endl;
+	cin >> x >> c >> y;
+	if (c == '+') {
+		cout << "Sum = " << x << '+' << y << ' = ' << x + y << endl;
+	}
+	else if(c=='-') {
+		cout << "Sub = " << x << '-' << y << ' = ' << x - y << endl;
+	}
+	else if (c == '/') {
+		cout << "Div = " << x << '/' << y << ' = ' << x / y << endl;
+	}
+	else if (c == '*') {
+		cout << "Sub = " << x << '*' << y << ' = ' << x * y << endl;
+	}
+	else {
+		cout << "Please enter a valid operator *,/,+,-"<< endl;
+	}
+}
+*/

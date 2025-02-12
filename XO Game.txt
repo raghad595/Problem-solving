@@ -1,0 +1,187 @@
+
+//======= XO Game ========
+//======= Player Class ===
+
+package xo;
+public class Player {
+    private String name;
+    private char op;
+
+    public Player() {
+    }
+
+    public Player(String name, char op) {
+        this.name = name;
+        this.op = op;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setOp(char op) {
+        this.op = op;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public char getOp() {
+        return op;
+    }
+}
+
+//===== Board Class ======
+
+package xo;
+
+public class Board {
+    char [][] arr ;
+
+    public Board() {
+        this.arr = new char[][]{{'1','2','3'},{'4','5','6'},{'7','8','9'}};
+    }
+    
+    public int getRow(int index){
+        return ((index-1)/3);
+    }
+    
+    public int getCol(int index){
+        return ((index-1)%3);
+    }
+    
+    public boolean isEmpty(int index){
+        if(index<1 || index>9)return false;
+        int row = getRow(index);
+        int col = getCol(index);
+        if(arr[row][col]=='o'||arr[row][col]=='O'||arr[row][col]=='x'||arr[row][col]=='X')
+            return false;
+        return true;
+    }
+    
+    public boolean replaceChar(int index, Player p){
+        if(isEmpty(index)){
+            int row = getRow(index);
+            int col = getCol(index);
+            arr[row][col]=p.getOp();
+            return true;
+        }
+        return false;
+    }
+    
+    public void draw(){
+        for(int i=0;i<3;i++){
+            System.out.println("-----------------");
+            for(int j=0;j<3;j++){
+                System.out.print("|  "+arr[i][j]+"  ");     
+            }
+            System.out.println("|");
+        }
+        System.out.println("-----------------");
+    }
+    
+    public boolean isFull(){
+        int count = 0;
+        for(int i=1;i<=9;i++){
+            if(isEmpty(i))count++;
+        }
+        if(count == 0)return true;
+        return false;
+    }
+    
+    public boolean isWin(Player p){
+        if(arr[0][0]==arr[0][1]&&arr[0][0]==arr[0][2]&&arr[0][1]==arr[0][2])
+            return true;
+        if(arr[1][0]==arr[1][1]&&arr[1][0]==arr[1][2]&&arr[1][1]==arr[1][2])
+            return true;
+        if(arr[2][0]==arr[2][1]&&arr[2][0]==arr[2][2]&&arr[2][1]==arr[2][2])
+            return true;
+        if(arr[0][0]==arr[1][0]&&arr[0][0]==arr[2][0]&&arr[1][0]==arr[2][0])
+            return true;
+        if(arr[0][1]==arr[1][1]&&arr[0][1]==arr[2][1]&&arr[1][1]==arr[2][1])
+            return true;
+        if(arr[0][2]==arr[1][2]&&arr[0][2]==arr[2][2]&&arr[1][2]==arr[2][2])
+            return true;
+        if(arr[0][0]==arr[1][1]&&arr[0][0]==arr[2][2]&&arr[1][1]==arr[2][2])
+            return true;
+        if(arr[0][2]==arr[1][1]&&arr[0][2]==arr[2][0]&&arr[1][1]==arr[2][0])
+            return true;
+        return false;
+    }
+}
+
+//====== Game class ======
+
+package xo;
+import java.util.Scanner;
+
+public class Game {
+    private Board myBoard = new Board();
+    private Player p1 = new Player();
+    private Player p2 = new Player();
+    private int count = 0;
+
+    public void readPlayerData(){
+        Scanner cin = new Scanner(System.in);        
+        System.out.println("Enter Player 1 Name : ");
+        String s = cin.next();
+        p1.setName(s);
+        System.out.println("Select Player 1 Operator 'x' or 'o' : ");
+        String op = cin.next();
+        p1.setOp(op.charAt(0));
+        
+        System.out.println("Enter Player 2 Name : ");
+        s = cin.next();
+        p2.setName(s);
+        
+        if(p1.getOp()=='x'||p1.getOp()=='X')
+            p2.setOp('o');
+        else
+            p2.setOp('x');
+    }
+    
+    public void play(){
+        Scanner cin = new Scanner(System.in);
+        readPlayerData();
+        myBoard.draw();
+        
+        while(!myBoard.isFull()){
+            Player currentPlayer = p1;
+            if(count%2==1) currentPlayer = p2;
+
+            while(true){
+                int pos;
+                System.out.println("Select Empty Posittion from 1 to 9 :");
+                pos=cin.nextInt();
+                if(myBoard.replaceChar(pos,currentPlayer)){
+                    break;
+                }
+            }
+            
+            myBoard.draw();
+            if(myBoard.isWin(currentPlayer)){
+                System.out.println("The winner is : " + currentPlayer.getName());
+                break;
+            }
+            count++;   
+        }
+        
+        if(myBoard.isFull()){
+            System.out.println("Game is Draw ..");            
+        }
+    }  
+}
+
+//====== in main ======
+
+package xo;
+
+public class Xo {
+
+    public static void main(String[] args) {
+        Game myGame = new Game();
+        myGame.play();
+    }
+    
+}

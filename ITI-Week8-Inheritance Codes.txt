@@ -1,0 +1,489 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// ======== inheritance codes ============
+
+//Ex 1
+
+/*
+//Person Class:
+
+class Person {
+protected:
+	//Attributes:
+	string name;
+	string address;
+public:
+
+	//constructors:
+	Person() {
+
+	}
+	Person(string n, string a) {
+		name = n;
+		address = a;
+	}
+
+	//setters
+	void setName(string n) {
+		name = n;
+	}
+	void setAddress(string a) {
+		address = a;
+	}
+
+	//Getters:
+	string getName() {
+		return name;
+	}
+	string getAddress() {
+		return address;
+	}
+
+	//Methods:
+	void printInfo() {
+		cout << "Name : " << name << endl;
+		cout << "IAddress : " << address << endl;
+	}
+
+	//Destructor
+	~Person() {
+
+	}
+};
+
+
+//Stuff Class:
+
+class Stuff : public Person {
+private:
+	//Attributes:
+	string school;
+	double pay;
+public:
+
+	//Constructors:
+	Stuff() {
+		pay = 0;
+	}
+	Stuff(string n, string a, double p) :Person(n, a) {
+		pay = p;
+	}
+
+	//Setters:
+	void setSchool(string s) {
+		school = s;
+	}
+	void setPay(double p) {
+		pay = p;
+	}
+
+	//Getters:
+	string getSchool() {
+		return school;
+	}
+	double getPay() {
+		return pay;
+	}
+
+	//Methods:
+	void printInfo() {
+		Person::printInfo();
+		cout << "Pay : " << pay << endl;
+
+		cout << "====================\n";
+	}
+
+	//Destructor
+	~Stuff() {
+
+	}
+};
+
+
+//Student Class:
+
+class Student : public Person {
+private:
+	//Attributes:
+	string program;
+	int year;
+	double fee;
+public:
+	//Constructors:
+	Student() {
+		year = 0;
+		fee = 0;
+	}
+	Student(string n, string a, string p, int y, double f):Person(n,a) {
+		program = p;
+		year = y;
+		fee = f;
+	}
+
+	//Setters:
+	void setProgram(string p) {
+		program = p;
+	}
+	void setYear(int y) {
+		year = y;
+	}
+	void setFee(double f) {
+		fee = f;
+	}
+
+	//Getters:
+	string getProgram() {
+		return program;
+	}
+	int getYear() {
+		return year;
+	}
+	double getFee() {
+		return fee;
+	}
+
+	//Methods:
+	void printInfo() {
+		Person::printInfo();
+		cout << "Program : " << program << endl;
+		cout << "Year : " << year << endl;
+		cout << "Fee : " << fee << endl;
+		cout << "====================\n";
+	}
+
+	//destructor
+	~Student() {
+
+	}
+};
+
+
+//main:
+
+int main() {
+	Stuff t1, t2("Ahmed", "Cairo",1000);
+
+	t1.setName("Ali");
+	t1.setAddress("Giza");
+	t1.setPay(5000);
+
+	t1.printInfo();
+	t2.printInfo();
+
+
+
+	Student s1, s2("Hager", "Cairo", "main stream" , 2 , 1000);
+
+	s1.setName("Akram");
+	s1.setAddress("Alex");
+	s1.setProgram("credit hours");
+	s1.setFee(2000);
+	s1.setYear(3);
+
+	s1.printInfo();
+	s2.printInfo();
+}
+*/
+
+
+//Ex 2
+//=================================================
+
+
+/*
+//Shape Class:
+
+class Shape {
+protected:
+	//Attributes:
+	int height;
+
+public:
+	//Constructors:
+	Shape() {
+		height = 0;
+	}
+	Shape(int h) {
+		height = h;
+	}
+
+	//Setters:
+	void setHeight(int h) {
+		height = h;
+	}
+
+	//Getters:
+	int getGeight() {
+		return height;
+	}
+
+	//Methods:
+	int getAare() {
+		return 0;
+	}
+
+	//Destructor
+	~Shape() {
+
+	}
+};
+
+
+//Rectangle class:
+
+class Rectangle : public Shape{
+protected:
+	//Attributes:
+	int width;
+public:
+
+	//Constructors:
+	Rectangle() {
+		width = 0;
+	}
+	Rectangle(int h, int w):Shape(h) {
+		width = w;
+	}
+
+	//Setters:
+	void setWidth(int w) {
+		width = w;
+	}
+
+	//Getter:
+	int getWidth() {
+		return width;
+	}
+
+	//Methods:
+	int getAare() {
+		return width*height;
+	}
+
+	//destructor
+	~Rectangle() {
+
+	}
+};
+
+class Square : public Rectangle{
+
+public:
+	//Constructors:
+	Square() {
+	}
+	Square(int h, int w) : Rectangle(h,w) {
+	}
+
+	//Setters:
+	void setDimensions(int w, int h) {
+		if (w == h) {
+			width = w;
+			height = h;
+		}
+	}
+
+	//Methods:
+	int getAare() {
+		return width * height;
+	}
+
+	//Destructor
+	~Square() {
+
+	}
+};
+
+//Tringle class:
+
+class Tringle : public Shape{
+private:
+	//Attributes:
+	int base;
+public:
+	//Constructors:
+	Tringle() {
+		base = 0;
+	}
+	Tringle(int h, int b) :Shape(h) {
+		base = b;
+	}
+
+	//Setters:
+	void setWidth(int b) {
+		base = b;
+	}
+
+	//Getters:
+	int getBase() {
+		return base;
+	}
+
+	//Methods:
+	int getAare() {
+		return 0.5 * base * height;
+	}
+
+	//Destructor:
+	~Tringle() {
+
+	}
+};
+
+//Circle class
+
+class Circle : public Shape {
+public:
+	//Constructors:
+	Circle() {
+	}
+	Circle(int r) :Shape(r) {
+	}
+
+	//Methods:
+	int getAare() {
+		return 3.14 * height * height;
+	}
+
+	//Destructor:
+	~Circle() {
+
+	}
+
+};
+int main() {
+	Rectangle r(10, 20);
+	cout << "Rectangle Area = " << r.getAare() << endl;
+
+	Square s;
+	s.setDimensions(10, 10);
+	cout << "Square Area = " << s.getAare() << endl;
+
+	Tringle t(10, 10);
+	cout << "Tringle Area = " << t.getAare() << endl;
+
+	Circle c(10);
+	cout << "Circle Area = " << c.getAare() << endl;
+}
+*/
+
+//=======================================================
+
+//Ex 3 (Composition)
+
+/*
+class Auther{
+private:
+	//Attributes:
+	string name;
+	string email;
+	char gender;
+
+public:
+	//Con:
+	Auther(){
+		gender = '0';
+	}
+	Auther(string n, string e, char g){
+		name = n;
+		email = e;
+		gender = g;
+	}
+
+	//Setters:
+	void set_name(string n){
+		name = n;
+	}
+	void set_email(string e){
+		email = e;
+	}
+	void set_gender(char g){
+		gender = g;
+	}
+
+	//Getters:
+	string get_name(){
+		return name;
+	}
+	string get_email(){
+		return email;
+	}
+	char get_gender(){
+		return gender;
+	}
+};
+
+//====
+
+class Book{
+private:
+	//Attributes:
+	string name;
+	double price;
+	int qty = 0;
+	Auther auther;
+
+public:
+	//Con:
+	Book(){
+		price = 0;
+	}
+	Book(string n, double p, Auther a){
+		name = n;
+		price = p;
+		auther = a;
+	}
+	Book(string n, double p, Auther a, int q){
+		name = n;
+		price = p;
+		auther = a;
+		qty = q;
+	}
+
+	//Setters:
+	void set_name(string n){
+		name = n;
+	}
+	void set_price(double p){
+		price = p;
+	}
+	void set_qty(int q){
+		qty = q;
+	}
+	void set_auther(Auther a){
+		auther = a;
+	}
+
+	//Getters:
+	string get_name(){
+		return name;
+	}
+	double get_price() {
+		return price;
+	}
+	int get_qty() {
+		return qty;
+	}
+	Auther getAuther() {
+		return auther;
+	}
+
+};
+
+//main:
+
+int main() {
+	Auther a("Ahmed Abdo", "ahmedabdo@route.com", 'M');
+	Book b("Hello World", 150, a, 3);
+	cout << "Book Name : " << b.get_name() << endl;
+	cout << "Price : " << b.get_price() << endl;
+	cout << "Quantity : " << b.get_qty() << endl;
+	cout << "Auther Name : " << b.getAuther().get_name() << endl;
+	cout << "Auther Email : " << b.getAuther().get_email() << endl;
+	cout << "Auther Gender : " << b.getAuther().get_gender()<< endl;
+}
+*/
+
+

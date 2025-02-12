@@ -1,0 +1,327 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+// Q1
+//class Ball {
+//	int radius;
+//	float x, y, xDelta, yDelta;
+//public:
+//	Ball(int radius, float x, float y, float xDelta, float yDelta) {
+//		this->radius = radius;
+//		this->x = x;
+//		this->y = y;
+//		this->xDelta = xDelta;
+//		this->yDelta = yDelta;
+//	}
+//	void setRadius(int radius) {
+//		this->radius = radius;
+//	}
+//	void setX(float x) {
+//		this->x = x;
+//	}
+//	void setY(float y) {
+//		this->y = y;
+//	}
+//	void setxDelta(float xDelta) {
+//		this->xDelta = xDelta;
+//	}
+//	void setyDelta(float yDelta) {
+//		this->yDelta = yDelta;
+//	}
+//	int getRadius() {
+//		return radius;
+//	}
+//	float getX() {
+//		return x;
+//	}
+//	float getY() {
+//		return y;
+//	}
+//	float getxDelta() {
+//		return xDelta;
+//	}
+//	float getyDelta() {
+//		return yDelta;
+//	}
+//	void Move() {
+//		x += xDelta;
+//		y += yDelta;
+//	}
+//	void reflectHorizontal() {
+//		xDelta = -1 * xDelta;
+//	}
+//	void reflectVertical() {
+//		yDelta = -1 * yDelta;
+//	}
+//	string BallInfo() {
+//		string s;
+//		s = "Ball[(" + to_string(x) + "," + to_string(y) + "), Speed = (" + to_string(xDelta) + "," + to_string(yDelta) + ")]";
+//		return s;
+//	}
+//};
+//
+//int main() {
+//	Ball b(5, 3.2, 4.7, 1.2, 2.4);
+//
+//	cout << b.BallInfo();
+//}
+
+=================================================================
+
+// Q2
+//class Employee {
+//protected:
+//	int id, age;
+//	string name, email;
+//	float salary;
+//public:
+//	Employee() {
+//		id = 0;
+//		age = 0;
+//		salary = 0;
+//	}
+//	Employee(int id, int age, string name, string email, float salary) {
+//		this->id = id;
+//		this->age = age;
+//		this->name = name;
+//		this->email = email;
+//		this->salary = salary;
+//	}
+//	void setId(int id) {
+//		this->id = id;
+//	}
+//	void setAge(int age) {
+//		this->age = age;
+//	}
+//	void setName(string name) {
+//		this->name = name;
+//	}
+//	void setEmail(string email) {
+//		this->email = email;
+//	}
+//	void setSalary(float salary) {
+//		this->salary = salary;
+//	}
+//	int getId() {
+//		return id;
+//	}
+//	int getAge() {
+//		return age;
+//	}
+//	string getName() {
+//		return name;
+//	}
+//	string getEmail() {
+//		return email;
+//	}
+//	float getSalary() {
+//		return salary;
+//	}
+//	virtual void DisplayInfo() {
+//		cout << "Id : " << id << endl;
+//		cout << "Age : " << age << endl;
+//		cout << "Name : " << name << endl;
+//		cout << "Email : " << email << endl;
+//		cout << "Salary : " << salary << endl;
+//	}
+//	virtual void calculateSalary() = 0;
+//};
+//
+//class Manager : public Employee {
+//	float bonus;
+//public:
+//	Manager(int id, int age, string name, string email, float salary, float bonus) :Employee(id, age, name, email, salary) {
+//		this->bonus = bonus;
+//	}
+//	void DisplayInfo() {
+//		Employee::DisplayInfo();
+//		cout << "Bonus : " << bonus << endl;
+//	}
+//	void calculateSalary() {
+//		salary += bonus;
+//	}
+//};
+//
+//class Engineer : public Employee {
+//	int projectcount;
+//public:
+//	Engineer(int id, int age, string name, string email, float salary, int projectcount) :Employee(id, age, name, email, salary) {
+//		this->projectcount = projectcount;
+//	}
+//	void DisplayInfo() {
+//		Employee::DisplayInfo();
+//		cout << "projectcount : " << projectcount << endl;
+//	}
+//	void calculateSalary() {
+//		salary += projectcount * 1000;
+//	}
+//};
+//
+//int main() {
+//	/*Manager m(1, 50, "Mohamed", "mohamed@gmail.com", 8000, 1000);
+//	m.calculateSalary();
+//	m.DisplayInfo();*/
+//
+//	Engineer e(1, 50, "Mohamed", "mohamed@gmail.com", 8000, 4);
+//	e.calculateSalary();
+//	e.DisplayInfo();
+//}
+
+=================================================================
+
+//Q3
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
+// 25300
+
+class Duration {
+	int hours, minutes, seconds;
+public:
+	Duration(){
+		hours = minutes = seconds = 0;
+	}
+	Duration(int hours, int minutes, int seconds) {
+		this->hours = hours;
+		this->minutes = minutes;
+		this->seconds = seconds;
+	}
+
+	Duration(int millisecond) {
+		seconds = millisecond / 1000;
+		hours = seconds / 3600;
+		minutes = (seconds % 3600) / 60;
+		seconds = seconds % 3600 % 60;
+	}
+	Duration(Duration& d) {
+		this->hours = d.hours;
+		this->minutes = d.minutes;
+		this->seconds = d.seconds;
+	}
+
+	int converttosecond(Duration d) {
+		return d.hours * 3600 + d.minutes * 60 + d.seconds;
+	}
+
+	Duration converttotime(int sum) {
+		int newhours, newminutes, newseconds;
+		newhours = sum / 3600;
+		newminutes = sum % 3600 / 60;
+		newseconds = sum % 3600 % 60;
+		Duration newtime(newhours, newminutes, newseconds);
+		return newtime;
+	}
+
+	Duration operator +(Duration d) {
+		/*int newhours, newminutes, newseconds;
+		newhours = this->hours + d.hours;
+		newminutes = this->minutes + d.minutes;
+		newseconds = this->seconds + d.seconds;*/
+		int converted1 = converttosecond(*this);
+		int converted2 = converttosecond(d);
+		int sum = converted1 + converted2;
+
+		Duration temp;
+		temp = converttotime(sum);
+		return temp;
+	}
+
+	Duration operator -(Duration d) {
+		
+		int converted1 = converttosecond(*this);
+		int converted2 = converttosecond(d);
+		int sum = converted1 - converted2;
+
+		Duration temp;
+		temp = converttotime(sum);
+		return temp;
+	}
+
+	bool operator > (Duration d) {
+		int converted1 = converttosecond(*this);
+		int converted2 = converttosecond(d);
+		return converted1 > converted2;
+	}
+
+	bool operator < (Duration d) {
+		int converted1 = converttosecond(*this);
+		int converted2 = converttosecond(d);
+		return converted1 < converted2;
+	}
+
+	bool operator ==(Duration d) {
+		return (this->hours == d.hours && this->minutes == d.minutes && this->seconds == d.seconds);
+	}
+
+	void Display() {
+		cout << hours << " : " << minutes << " : " << seconds << endl;
+	}
+};
+
+
+int main() {
+	Duration d1(4, 50, 55), d2(4, 50, 55);
+	Duration d3;
+
+	if (d1 == d2) {
+		cout << "true";
+	}
+	else {
+		cout << "false";
+	}
+	
+}
+=================================================================
+
+//Q4
+//class myexception : public exception {
+//
+//	virtual char const* what()const {
+//		return "you can`t get sqrt for negative number";
+//	}
+//};
+//
+//template <class t>
+//class Math {
+//public:
+//	static t pow(t num, t x) {
+//		t temp = num;
+//		for (int i = 1; i <= x; i++) {
+//			temp *= num;
+//		}
+//		return temp;
+//	}
+//
+//	static t abs(t num) {
+//		if (num < 0) {
+//			return num * -1;
+//		}
+//		return num;
+//	}
+//
+//	static t SQRT(t num) {
+//		if (num < 0) {
+//			throw myexception();
+//		}
+//		return sqrt(num);
+//	}
+//
+//};
+//
+//
+//int main() {
+//	
+//	try {
+//		cout << Math<int>::SQRT(-36);
+//	}
+//	catch (exception& e) {
+//		cout << e.what();
+//	}
+//	
+//}
+

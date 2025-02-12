@@ -1,0 +1,255 @@
+#include <iostream>
+using namespace std;
+
+
+int multiplication(int x, int y) {
+	return x * y;
+}
+int devision(int x, int y) {
+	return x / y;
+}
+int summation(int x, int y) {
+	return x + y;
+}
+int Subtraction(int x, int y) {
+	return x - y;
+}
+int main() {
+	// Q1
+	/*int num1, num2, temp;
+	cin >> num1 >> num2;
+	temp = num1;
+	num1 = num2;
+	num2 = temp;
+	cout << num1 << " " << num2;*/
+
+	//Q2
+	//int num, firstdigit;
+	//cin >> num;
+	////    4569
+	//while (num != 0) {
+	//	firstdigit = num % 10;
+	//	num /= 10;
+	//}
+
+	//if (firstdigit % 2 == 0) {
+	//	cout << "Even" << endl;
+	//}
+	//else {
+	//	cout << "Odd" << endl;
+	//}
+
+
+	// Q3
+	/*int sum = 0;
+	for (int i = 100; i <= 200; i++) {
+		if (i % 9 == 0) {
+			cout << i << " ";
+			sum += i;
+		}
+	}
+	cout << endl << sum << endl;*/
+
+	//q4
+	//int num;
+	//cin >> num;
+	////   942653
+	//while (num != 0) {
+	//	cout << num % 10 << " ";
+	//	num /= 10;
+	//}
+
+	//q5
+	//int num;
+	//cin >> num; // 47
+	//for (int i = num; i >=1; i--) {
+	//	bool flag = true;
+	//	for (int j = 2; j < i; j++) {
+	//		if (i % j == 0) {
+	//			flag = false;
+	//			break;
+	//		}
+	//	}
+	//	if (flag) {
+	//		cout << i << endl;
+	//		break;
+	//	}
+	//}
+
+
+	//Q6
+	/*int num, sum = 0, term = 1;
+	cin >> num;
+
+	for (int i = 1; i <= num; i++) {
+		sum += term;
+		cout << term;
+		if (i != num) {
+			cout << " + ";
+		}
+		term = term * 10 + 1;
+	}
+	cout << endl << sum << endl;*/
+
+
+	//Q7
+	//int arr[5], freq[5];
+	//// 25 12 43 25 10
+	//for (int i = 0; i < 5; i++) {
+	//	cin >> arr[i];
+	//}
+	//for (int i = 0; i < 5; i++) {
+	//	int count = 1;
+	//	for (int j = i+1; j < 5; j++) {
+	//		if (arr[i] == arr[j]) {
+	//			count++;
+	//			freq[j] = -1;
+	//		}
+	//	}
+	//	if (freq[i] != -1) {
+	//		freq[i] = count;
+	//	}
+	//}
+	//for (int i = 0; i < 5; i++) {
+	//	if (freq[i] != -1) {
+	//		cout << arr[i] << " occers " << freq[i] << " times" << endl;
+	//	}
+	//}
+
+
+	//Q8
+	/*int arr[3][3];
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			cin >> arr[i][j];
+		}
+	}
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (i == j || (i + j) == 2) {
+				cout << arr[i][j] << " ";
+			}
+		}
+	}*/
+
+	//Q9
+	/*int min = INT_MAX, secmin;
+	int arr[5];
+	for (int i = 0; i < 5; i++) {
+		cin >> arr[i];
+	}
+	for (int i = 0; i < 5; i++) {
+		if (arr[i] < min) {
+			secmin = min;
+			min = arr[i];
+		}
+		else if (arr[i] < secmin) {
+			secmin = arr[i];
+		}
+	}
+	cout << secmin;*/
+	
+
+	//Q10
+	/*char operation;
+	int a, b;
+	while (true) {
+		cout << "please enter two numbers" << endl;
+		cin >> a >> b;
+		cout << "please enter your operation" << endl;
+		cin >> operation;
+		switch (operation) {
+		case '+':
+			cout << summation(a, b);
+			break;
+		case '-':
+			cout << Subtraction(a, b);
+			break;
+		case '*':
+			cout << multiplication(a, b);
+			break;
+		case '/':
+			cout << devision(a, b);
+			break;
+		default:
+			cout << "you entered false value" << endl;
+		}
+		cout << "choose ( y / n ) choose 'y' if you want to complete my program" << endl;
+		cin >> operation;
+		if (operation == 'n') {
+			break;
+		}
+	}*/
+
+	
+	//Q11
+	/*string s1, s2;
+	cin >> s1 >> s2;
+	for (int i = 0; i < s1.size(); i++) {
+		for (int j = 0; j < s1.size(); j++) {
+			if (s1[i] < s1[j]) {
+				char temp = s1[i];
+				s1[i] = s1[j];
+				s1[j] = temp;
+			}
+		}
+	}
+
+	for (int i = 0; i < s2.size(); i++) {
+		for (int j = 0; j < s2.size(); j++) {
+			if (s2[i] < s2[j]) {
+				char temp = s2[i];
+				s2[i] = s2[j];
+				s2[j] = temp;
+			}
+		}
+	}
+
+	if (s1 == s2) {
+		cout << "anagram" << endl;
+	}
+	else {
+		cout << "not anagram" << endl;
+	}*/
+
+}
+
+
+
+
+// Q12
+int primearrsize = 0;
+int* Prime(int arr[], int size) {
+    int count;
+    int* primenumbers = new int[size];
+
+    for (int i = 0; i < size; i++) {
+        count = 0;
+        for (int j = 1; j <= arr[i]; j++) {
+            if (arr[i] % j == 0) {
+                count++;
+            }
+        }
+        if (count == 2) {
+            primenumbers[primearrsize] = arr[i];
+            primearrsize++;
+        }
+    }
+    return primenumbers;
+}
+
+int main()
+{
+    int arr[10];
+    for (int i = 0; i < 10; i++) {
+        cin >> arr[i];
+    }
+
+    int* p = Prime(arr, 10);
+    
+    cout << "asd";
+
+    for (int k = 0; k < primearrsize; k++) {
+        cout << p[k] << endl;
+    }
+}

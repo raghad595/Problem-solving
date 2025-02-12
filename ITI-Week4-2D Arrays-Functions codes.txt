@@ -1,0 +1,414 @@
+#include <iostream>
+using namespace std;
+
+//============== 2D Arrays ================
+/*
+
+int main()
+{
+	
+	/*Ex 1:
+		Print the summation of 2D Array
+	*/
+
+	/*
+
+	int arr1[3][3], arr2[3][3], sum[3][3];
+
+	cout << "Enter First arr = \n";
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			cin >> arr1[i][j];
+		}
+	}
+
+	cout << "Enter Second arr = \n";
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			cin >> arr2[i][j];
+		}
+	}
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			sum[i][j] = arr1[i][j] + arr2[i][j];
+		}
+	}
+
+	cout << "Sum of two arrs = \n";
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			cout << sum[i][j] << " ";
+		}
+		cout << endl;
+	}
+	*/
+
+	//================================================
+
+	/*Ex 2:
+		Print the max of 2D Array
+	*/
+
+	/*
+	int arr[3][3],max = INT_MIN;
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			cin >> arr[i][j];
+			if (arr[i][j] > max) {
+				max = arr[i][j];
+			}
+		}
+	}
+
+	cout << "Max = " << max << endl;
+	*/
+
+	//================================================
+
+	/*Ex 3:
+		Write a program that Check if the matrix 
+		is identity or not
+		(identity matrix: all numbers must 
+		be zero and the diagonal is 1).
+	*/
+
+	/*
+	int arr[3][3];
+	bool flag = true;
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			cin >> arr[i][j];
+		}
+	}
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (i == j) {
+				if (arr[i][j] != 1)
+					flag = false;
+			}
+			else if (arr[i][j] != 0){
+				flag = false;
+			}
+		}
+	}
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			cout << arr[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	if (flag) {
+		cout << "Matrix is identity matrix" << endl;
+	}
+	else {
+		cout << "Matrix is not identity matrix" << endl;
+	}
+	*/
+	//================================================
+
+	/*Quiz 1:
+		Search for value in 2d array
+	*/
+
+	/*
+    int arr [3][3];
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			cin >> arr[i][j];
+		}
+	}
+
+	cout << "Enter a value to find :\n";
+	int value;
+	cin >> value;
+
+	int isFound = -1;
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (value == arr[i][j]) {
+				isFound = i;
+				break;
+			}
+		}
+	}
+
+	if (isFound != -1) {
+		cout << value << " is founded " << endl;
+	}
+	else {
+		cout << value << " is not founded\n" << endl;
+	}
+	*/
+
+	}
+*/
+
+//============== Functions =================
+
+// ======= A. Pre Defined Functions ========
+
+/*
+1.
+Take 2 numbers from user and let
+seconde num to be power of first.
+Ex: 2 , 3
+output : 2^3 = 8
+*/
+
+//first Solution without pre defined functions:
+//========================================
+/*
+int main(){
+
+	int x, y, res = 1;
+	cin >> x >> y;
+
+	for (int i = 1; i <= y; i++) {
+		res *= x;
+	}
+	cout << res << endl;
+*/
+
+//Second Solution without pre defined functions:
+//========================================
+/*
+int x, y;
+cin >> x >> y;
+cout << pow(x, y) << endl;
+
+}
+*/
+
+//=====================================
+
+// ======= B. User Defined Functions ========
+// ========== B.1 Void Functions ===========
+/*
+2:
+Create void function to print hello world
+*/
+
+/*
+void print_hello(){
+	cout << "Hello World\n" << endl;
+}
+
+int main(){
+	print_hello();
+}
+*/
+
+//=====================================
+
+/*
+Quiz 1:
+Create void function to print your name
+*/
+
+/*
+void print_name(){
+	cout << "Ahmed Abdo\n" << endl;
+}
+
+int main(){
+	print_name();
+}
+*/
+
+//=====================================
+
+// ======= B. User Defined Functions ========
+// ======= B.2 Return Type Functions ========
+/*
+3:
+Create function take 2 integers then
+return summation
+*/
+
+/*
+int sumof2(int x, int y){
+	return x + y;
+}
+
+int main(){
+	cout << "Please Enter 2 numbers to get sum :\n";
+	int num1,num2;
+	cin >> num1 >> num2;
+	cout << "Sum = "<<sumof2(num1,num2);
+}
+*/
+
+//=====================================
+
+/*
+4:
+Create function take an integer then return
+true if this number is even otherwise
+return false
+
+*/
+
+/*
+bool is_even(int x){
+	if (x % 2 == 0)
+		return true;
+	else
+		return false;
+}
+
+int main() {
+	cout << "Please Enter a number to see if it is even or not :" << endl;
+	int num;
+	cin >> num;
+
+	if (is_even(num))
+		cout << "Your number '" << num << "' is even ." << endl;
+	else
+		cout << "Your number '" << num << "' is odd ." << endl;
+}
+*/
+
+
+//=====================================
+
+/*
+Quiz 2:
+Create function take 2 integers and return max
+*/
+
+/*
+int max(int x, int y){
+	if (x > y)
+		return x ;
+	else
+		return y ;
+}
+
+int main(){
+	cout << "Please Enter 2 numbers :\n";
+	int num1, num2;
+	cin >> num1 >> num2;
+	cout << "Max = " << max(num1, num2);
+}
+*/
+
+//=====================================
+
+/*
+5:
+Create Calculator using functions
+*/
+
+/*
+int sum(int x, int y) {
+	return x + y;
+}
+int sub(int x, int y) {
+	return x - y;
+}
+int multi(int x, int y) {
+	return x * y;
+}
+int divide(int x, int y) {
+	return x / y;
+}
+
+int calc(int x, char op, int y) {
+	if (op == '+') {
+		cout << x << " + " << y << " = ";
+		return sum(x, y);
+	}
+	else if (op == '-') {
+		cout << x << " - " << y << " = ";
+		return sub(x, y);
+	}
+	else if (op == '*') {
+		cout << x << " * " << y << " = ";
+		multi(x, y);
+	}
+	else{
+		cout << x << " / " << y << " = ";
+		divide(x, y);
+	}
+}
+
+int main() {
+	cout << "Please Enter 2 numbers separated by operator (+ or - or / or *) :"
+	<< endl;
+	int num1, num2;
+	char op;
+	cin >> num1 >> op >> num2;
+	cout << calc(num1, op, num2);
+}
+*/
+
+//=====================================
+
+/*
+6:
+Create function take one integer then
+return summation from 1 to it
+*/
+
+/*
+int sumAll(int x){
+	int sum = 0;
+	for (int i = 1; i <= x; i++)
+		sum += i;
+	return sum;
+}
+
+int main() {
+	cout << "Please Enter a number :\n";
+	int num;
+	cin >> num;
+	cout << "Sum = "<<sumAll(num);
+}
+
+//=====================================
+
+/*
+7:
+Create function take an integer then return
+true if this number is prime otherwise
+return false
+*/
+
+/*
+bool is_prime(int x){
+	int count = 0;
+	for (int i = 1; i <= x; i++){
+		if (x % i == 0)
+			count++;
+	}
+
+	if (count == 2)
+		return true;
+	else
+		return false;
+}
+
+int main() {
+	cout << "Please Enter a number to see if it is prime or not :" << endl;
+	int num;
+	cin >> num;
+
+	if (is_prime(num))
+		cout << "Your number '" << num << "' is prime ." << endl;
+	else
+		cout << "Your number '" << num << "' is not prime ." << endl;
+}
+*/
+
+//============ End ===================
+
+
+

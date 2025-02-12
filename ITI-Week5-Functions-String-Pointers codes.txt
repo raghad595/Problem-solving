@@ -1,0 +1,418 @@
+#include <iostream>
+using namespace std;
+
+//============== Functions =================
+
+
+//========= Passing by Reference ==========
+/*
+1:
+Create function take two integers
+to swap them.
+*/
+
+/*
+void swap(int& x, int& y){
+	int temp = x;
+	x = y;
+	y = temp;
+}
+
+int main() {
+	cout << "Please Enter two numbers to swap them :" << endl;
+	int x, y;
+	cin >> x >> y;
+	cout << x << "  " << y;
+	swap(x, y);
+	cout << x << "  " << y;
+}
+*/
+
+//=====================================
+
+// ========== Passing Array to Function ===========
+/*
+2:
+Create function take array then return the max
+element in array.
+*/
+
+/*
+int max_arr(int x[], int size){
+	int max;
+	for (int i = 0; i < size; i++)
+		cin >> x[i];
+
+	max = x[0];
+
+	for (int i = 0; i < size; i++){
+		if (x[i] > max)
+			max = x[i];
+	}
+	return max;
+}
+
+int main() {
+	int x[10];
+	cout << "Please Enter an array of ten elements:" << endl;
+	cout << "The max element is : " << max_arr(x, 10);
+}
+*/
+
+//=====================================
+
+//============= Recursion ==========
+/*
+3:
+Create function take an integer and print it's factorial
+*/
+
+/*
+int fact(int x) {
+	int res = 1;
+	for (int i = 1; i <= x; i++) {
+		res *= i;
+	}
+	return res;
+}
+
+int main() {
+	cout << "Enter a num :\n";
+	int x;
+	cin >> x;
+	cout << "Fact of " << x << " = " << fact(x);
+}
+*/
+
+//=====================================
+
+/*
+4:
+Create function take an integer and print it's factorial
+by using recursion
+*/
+
+/*
+int factRec(int n) {
+	if (n == 1)
+		return 1;
+	return n * factRec(n - 1);
+}
+
+int main() {
+	cout << "Enter a num :\n";
+	int n;
+	cin >> n;
+	cout << "Fact of " << n << " = " << factRec(n);
+}
+
+*/
+
+//=====================================
+
+/*
+Quiz 1:
+Create a recrsion function to get Sum of digits
+of an integer by recursion:
+*/
+
+/*
+int sumDig(int n) {
+	if (n == 0)
+		return 0;
+	return (n % 10 + sumDig(n / 10));
+}
+
+int main() {
+	int n;
+	cin >> n;
+	cout << "Sum of " << n << " Digits = "
+		 << sumDig(n) << endl;
+}
+*/
+
+// ========== fibonacci Function ======
+/*
+5:
+Create the fibonacci Series using recursion :
+*/
+/*
+int fib(int n) {
+	if (n == 1 || n == 2)
+		return 1;
+	else
+		return (fib(n - 1) + fib(n - 2));
+}
+
+int main(){
+	int n;
+	cout << "Enter A number :\n";
+	cin >> n;
+	cout << fib(n) << " ";
+}
+*/
+
+// ========== Power Function ======
+/*
+6:
+Create Power Function to take two integer 
+ex: x , y and return x power y using:
+1- CMATH
+2- loops.
+3- recursion.
+ :
+*/
+
+/*
+//1 - Using CMATH:
+int main() {
+	int base, ex ;
+	cin >> base >> ex;
+	cout << base << " ^ " << ex << " = " << pow(base, ex);
+}
+*/
+//===
+/*
+//2 - Using Loops:
+int expo(int base, int ex) {
+	int res = 1;
+	for (int i = 1; i <= ex; i++) {
+		res *= base;
+	}
+	return res;
+}
+
+int main() {
+	int base, ex ;
+	cin >> base >> ex;
+	cout << base << " ^ " << ex << " = " << expo(base, ex);
+}
+*/
+//===
+/*
+//3 - Using Recurion:
+int power(int base, int ex) {
+	if (ex == 0)
+		return 1;
+	else
+		return (base * power(base, ex - 1));
+}
+int main() {
+	int base, ex ;
+	cin >> base >> ex;
+	cout << base << " ^ " << ex << " = " << power(base, ex);
+}
+*/
+
+//============== String =============
+
+/*
+6:
+Create program to
+take a string and count all vowels of it.
+
+*/
+
+/*
+int main() {
+	cout << "Please enter a word : \n";
+	string x;
+	cin >> x;
+	int count = 0;
+
+	for (int i = 0; i < x.size(); i++){
+		if (x[i] == 'a' || x[i] == 'e'
+		|| x[i] == 'o' || x[i] == 'u'
+		|| x[i] == 'i')
+		{
+			count++;
+		}
+	}
+	cout << "Number of vowels charachters : "
+	<< count << endl;
+}
+*/
+
+//=====================================
+
+/*
+Quiz 2:
+Create program to take a string
+then remove all vowels from it.
+*/
+
+/*
+int main(){
+	cout << "Please enter a word : \n";
+	string x;
+	cin >> x;
+
+	for (int i = 0; i < x.size(); i++){
+		if (x[i] == 'a' || x[i] == 'e'
+		|| x[i] == 'o' || x[i] == 'u'
+		|| x[i] == 'i'){
+			x.erase(i, 1);
+			i--;
+		}
+	}
+	cout << "The string after removing vowels : " << x << endl;
+}
+*/
+
+//=====================================
+
+/*
+7:
+Create program to Search for char in word.
+*/
+
+/*
+int main(){
+	cout << "Please enter a word : \n";
+	string x;
+	cin >> x;
+
+	cout << "Please enter a char : \n";
+	char c;
+	cin >> c;
+
+	int flag = -1;
+
+	for (int i = 0; i < x.size(); i++) {
+		if (x[i] == c){
+			flag = i;
+		}
+	}
+
+	if (flag != -1)
+		cout << c << " is foundned at index = " << flag << endl;
+	else
+		cout << c << " is not founded\n";
+}
+*/
+
+//=====================================
+
+/*
+8:
+Create program to Get most repeated char in the word.
+*/
+
+/*
+
+int counter(string s, char c){
+	int count = 0;
+	for (int i = 0; i < s.size(); i++){
+	if (s[i] == c)
+	count++;
+	}
+	return count;
+}
+
+char getMostRepeatedChar(string s){
+	char c = s[0];
+	int max = 0;
+	for (int i = 0; i < s.size(); i++){
+		int count = counter(s, s[i]);
+		if (count > max){
+			max = count;
+			c = s[i];
+		}
+	}
+
+	if (max == 1){
+		cout << "All characters repeated only one time" << endl;
+		return 1;
+	}
+	else{
+		cout << "Max repeated character is : ";
+		return c;
+	}
+
+}
+
+int main(){
+	string s;
+	cout << "Please enter a word : \n";
+	cin >> s;
+	cout << getMostRepeatedChar(s);
+}
+
+*/
+
+//=====================================
+
+/*
+9:
+Create program to Count number of spaces and lines in text.
+*/
+
+/*
+
+int main(){
+	string s;
+	int countSpaces = 0;
+	int countTabs = 0;
+
+	cout << "Enter The String: \n";
+	getline(cin, s);
+
+
+	for (int i = 0; i < s.size(); i++){
+		if (s[i] == ' ')
+			countSpaces++;
+		else if (s[i] == '\t')
+			countTabs++;
+	}
+
+	cout << "Num of Spaces = " << countSpaces << endl;
+	cout << "Num of Tabs = "   << countTabs << endl;
+	cout << "==============================="<< endl;
+	cout << "Total Num of white Spaces = "
+	<< countSpaces + countTabs << endl;
+
+}
+
+*/
+
+
+//============ Pointers ===================
+
+int* getArrayHeap() {
+    int* arr = new int[5];
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+    return arr;
+}
+
+int* getArrayStack() {
+    int arr[5];
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+    return arr;
+}
+
+int  main(){
+    cout << "Please Enter Array:\n";
+    int* x = getArrayHeap();
+    cout << "Printing Array in main:\n";
+    for (int i = 0; i < 5; i++) {
+        cout << x[i] << " ";
+    }
+    delete[] x;
+
+   /* cout << "Please Enter Array:\n";
+    int* y = getArrayStack();
+    cout << "Printing Array in main:\n";
+    for (int i = 0; i < 5; i++) {
+        cout << y[i] << " ";
+    }
+    delete[] y;*/
+}
+
+//============ End ===================
+
+
+

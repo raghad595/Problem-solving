@@ -1,0 +1,373 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+//============= Assignment 7 Solution =================
+
+//==================== Task 1 ========================
+
+//== Circle Class ==
+
+/*
+class Circle {
+protected:
+	//Attributes:
+	double radius;
+	string color;
+
+public:
+	//Constructors:
+	Circle() {
+		radius = 1.0;
+		color = "red";
+	}
+	Circle(double r) {
+		radius = r;
+	}
+	Circle(double r, string c) {
+		radius = r;
+		color = c;
+	}
+
+	//Setters:
+	void setColor(string c) {
+		color = c;
+	}
+	void setRadius(double r) {
+		radius = r;
+	}
+
+	//Getters:
+	string getColor() {
+		return color;
+	}
+	double getRadius() {
+		return radius;
+	}
+
+	//Methods:
+	double getArea() {
+		return 3.14 * radius * radius;
+	}
+	void display_info() {
+		cout << "color : " << color << endl;
+		cout << "radius : " << radius << endl;
+	}
+};
+
+//== Cylinder Class ==
+
+class Cylinder : public Circle {
+private:
+	//Attributes:
+	double height;
+
+public:
+	//Constructors:
+	Cylinder() {
+		height = 1.0;
+	}
+	Cylinder(double radius) : Circle(radius) {
+
+	}
+	Cylinder(double r, double h) :Circle(r) {
+		height = h;
+	}
+	Cylinder(double r, double h, string c) :Circle(r, c) {
+		height = h;
+	}
+
+	//Setters:
+	void setHeight(double h) {
+		height = h;
+	}
+
+	//Getters:
+	double getHeight() {
+		return height;
+	}
+
+	//Methods:
+	double getVolume() {
+		return getArea() * height;
+	}
+
+};
+
+//== Main ==
+
+int main() {
+	Cylinder c(10, 2, "blue");
+	cout << "Area : " << c.getArea() << endl;
+	cout << "Volume : " << c.getVolume() << endl;
+}
+*/
+
+
+//==================== Task 2 ========================
+
+//== Customer Class ==
+
+/*
+class Customer {
+private:
+	string name;
+	int id, discount;
+public:
+	Customer(){}
+	Customer(string n, int i, int d) {
+		name = n;
+		id = i;
+		discount = d;
+	}
+
+	void setDiscount(int d) {
+		discount = d;
+	}
+
+	string getName() {
+		return name;
+	}
+	int getId() {
+		return id;
+	}
+	int getDiscount() {
+		return discount;
+	}
+
+	void display_info() {
+		cout << "Customer Name : " << name << endl;
+		cout << "Customer Id : " << id << endl;
+		cout << "Customer Discount : " << discount << endl;
+	}
+};
+
+//== Invoice Class ==
+
+class Invoice {
+private:
+	int id;
+	double amount;
+	Customer customer;
+public:
+	Invoice(int i, Customer c, double a) {
+		id = i;
+		customer = c;
+		amount = a;
+	}
+
+	void setCustomer(Customer c) {
+		customer = c;
+	}
+	void setAmount(double a) {
+		amount = a;
+	}
+
+	int getId() {
+		return id;
+	}
+	Customer getCustomer() {
+		return customer;
+	}
+	int getCustomerId() {
+		return customer.getId();
+	}
+	string getCustomerName() {
+		return customer.getName();
+	}
+	int getCustomerDiscount() {
+		return customer.getDiscount();
+	}
+	double getAmountAfterDiscount() {
+		return amount - ((customer.getDiscount() / 100.0) * amount);
+	}
+
+	void display_info() {
+		cout << "Invoid Id : " << id << endl;
+		cout << "Invoid amount : " << amount << endl;
+		customer.display_info();
+	}
+};
+
+int main() {
+	Customer c("Ahmed", 3, 25);
+	Invoice i(452, c, 1000);
+	i.display_info();
+	cout << "Amount After Discount : " << i.getAmountAfterDiscount() << endl;
+}
+*/
+
+
+//==================== Task 3 ========================
+
+//== Person Class ==
+
+/*
+class Person {
+protected:
+	string firstname, lastname;
+public:
+	Person(){}
+	Person(string fn, string ln) {
+		firstname = fn;
+		lastname = ln;
+	}
+	void setName(string fn, string ln) {
+		firstname = fn;
+		lastname = ln;
+	}
+	
+	string getFirstName() {
+		return firstname;
+	}
+	string getLastName() {
+		return lastname;
+	}
+
+	void display_info() {
+		cout << firstname << " " << lastname << endl;
+	}
+};
+
+//== Doctor Class ==
+
+class Doctor : public Person {
+private:
+	string speciality;
+public:
+	Doctor(){}
+	Doctor(string fn, string ln, string s) : Person(fn, ln) {
+		speciality = s;
+	}
+
+	void setSpeciality(string s) {
+		speciality = s;
+	}
+
+	string getSpeciality() {
+		return speciality;
+	}
+};
+
+//== Date Class ==
+
+class Date {
+private:
+	int day, month, year;
+public:
+	Date(){}
+	Date(int d, int m, int y) {
+		day = d;
+		month = m;
+		year = y;
+	}
+	void setDate(int d, int m, int y) {
+		day = d;
+		month = m;
+		year = y;
+	}
+
+	int getDay() {
+		return day;
+	}
+	int getMonth() {
+		return month;
+	}
+	int getYear() {
+		return year;
+	}
+
+	string toString() {
+		string s = "Date : " + to_string(day) + " / " + to_string(month) + " / " + to_string(year);
+		return s;
+	}
+};
+
+//== Patient Class ==
+
+class Patient {
+private:
+	int patientid, age;
+	Date dob, admitDate, dischargeDate;
+	Doctor physician;
+public:
+	Patient(int i, int a, Date db, Date ad, Date dd, Doctor ph) {
+		patientid = i;
+		age = a;
+		dob = db;
+		admitDate = ad;
+		dischargeDate = dd;
+		physician = ph;
+	}
+
+	void setDischargeDate(Date dd) {
+		dischargeDate = dd;
+	}
+	void setPhysician(Doctor ph) {
+		physician = ph;
+	}
+
+	Date getAdmitDate() {
+		return admitDate;
+	}
+	Date getDischarge() {
+		return dischargeDate;
+	}
+	Doctor getPhysician() {
+		return physician;
+	}
+};
+
+
+
+int main() {
+	Date d1(17, 7, 2024), d2(30, 7, 2024), d3(5, 8, 2024);
+	Doctor doctor("Ahmed", "Abdo", "dentist");
+	Patient p(1, 22, d1, d2, d3, doctor);
+	cout << p.getAdmitDate().toString() << endl;
+	cout << p.getDischarge().toString() << endl;
+	cout << "Doctor Name : ";
+	p.getPhysician().display_info();
+	cout << p.getPhysician().getSpeciality();
+}
+*/
+
+
+//==================== Task 4 ========================
+
+/*
+Difference between composition vs inheritance with example by code
+
+Both compositionand inheritance are object - oriented programming concepts.
+
+Composition  implement has - a relationship between objects.
+
+Inheritance  implement is - a relationship between objects.
+
+
+(example)
+if we have a class called vehicle
+
+vehicle has an engine, a tire--->  (has a) relationship, This is called composition
+when we use class engine or tire--->we make an object from it inside the class of vehicle
+
+if we make another class called car--->car is a vehicle, (is a)relationship, this is called inheritance
+
+class tire {
+
+};
+
+class engine {
+
+};
+
+class vehicle {
+	tire t;                   //composition
+	engine e;                 //composition
+};
+
+class car : public vehicle {   //inheritance
+
+};
+
+*/
