@@ -1,0 +1,145 @@
+//Assignment 8
+//Q1
+//#include <iostream>
+//using namespace std;
+//class Animal {
+//protected:
+//    string name;
+//public:
+//    Animal(){ }
+//    Animal(string name) {
+//        this->name = name;
+//    }
+//    void set_name(string name) {
+//        this->name = name;
+//    }
+//    string get_name() { return name; }
+//    virtual void greets() = 0;
+//};
+//class Cat:public Animal {
+//public:
+//    Cat() { }
+//    Cat(string name):Animal(name) {}
+//    void greets() {
+//        cout << "Meow\n";
+//    }
+//};
+//class Dog :public Animal {
+//public:
+//    Dog() { }
+//    Dog(string name) :Animal(name) {}
+//    void greets() {
+//        cout << "Woof\n";
+//    }
+//    void greets(const Dog& another) {
+//        cout << "Woooof\n";
+//    }
+//};
+//class BigDog :public Dog {
+//public:
+//    BigDog() { }
+//    BigDog(string name) :Dog(name) {}
+//    void greets() {
+//        cout << "Wooow\n";
+//    }
+//    void greets(const Dog& another) {
+//        cout << "Woooooow\n";
+//    }
+//    void greets(const BigDog& another) {
+//        cout << "Wooooooooow\n";
+//    }
+//};
+//int main() {
+//    Cat* c = new Cat("Siamese");
+//    Dog* d = new Dog("German");
+//    Dog* d1 = new Dog("Labrador");
+//    BigDog* bd = new BigDog("Bulldog");
+//    BigDog* bd1 = new BigDog("Husky");
+//    cout << c->get_name() << endl; 
+//    c->greets();
+//    cout << "=================\n";
+//    cout << d->get_name() << endl;
+//    d->greets(); 
+//    d->greets(*d1);
+//    cout << "=================\n";
+//    cout<< bd->get_name() << endl;
+//    bd->greets();
+//    bd->greets(*d1);
+//    bd->greets(*bd1);
+//}
+//Q2
+//#include <iostream>
+//using namespace std;
+//class Vechile {
+//protected:
+//	string model, reg_num;
+//	int vechile_speed;
+//	double capacity, consumption;
+//public:
+//	Vechile() {}
+//	Vechile(string model, string reg_num, int vechile_speed, double capacity, double consumption) {
+//		this->model = model;
+//		this->reg_num = reg_num;
+//		this->vechile_speed = vechile_speed;
+//		this->capacity = capacity;
+//		this->consumption = consumption;
+//	}
+//	void set_model(string model){ this->model = model; }
+//	void set_reg_num(string reg_num) { this->reg_num = reg_num; }
+//	void set_vechile_speed(int vechile_speed) { this->vechile_speed = vechile_speed; }
+//	void set_capacity(double capacity) { this->capacity = capacity; }
+//	void set_consumption(double consumption) { this->consumption = consumption; }
+//	string get_model() { return model; }
+//	string get_reg_num() { return reg_num; }
+//	int get_vechile_speed() { return vechile_speed; }
+//	double get_capacity() { return capacity; }
+//	double get_consumption() { return consumption; }
+//	virtual void display()const {
+//		cout << "Model: " << model
+//			<< "\nRegistration number: " << reg_num
+//			<< "\nVechile Speed: " << vechile_speed << " km/h"
+//			<< "\nCapacity: " << capacity << " liters"
+//			<< "\nConsumption: " << consumption << " liter/km";
+//	}
+//};
+//class Truck:public Vechile {
+//private:
+//	double weight;
+//public:
+//	Truck() {}
+//	Truck(double weight, string model, string reg_num, int vechile_speed, double capacity, double consumption):Vechile(model, reg_num, vechile_speed, capacity, consumption) {
+//		this->weight = weight;
+//	}
+//	void set_weight(double weight) { this->weight = weight; }
+//	double get_weight() { return weight; }
+//	void display() const override {
+//		Vechile::display();
+//		cout << "\nWeight: " << weight << " kg\n";
+//	}
+//};
+//class Bus :public Vechile {
+//private:
+//	int pass_num;
+//public:
+//	Bus() {}
+//	Bus(int pass_num, string model, string reg_num, int vechile_speed, double capacity, double consumption) :Vechile(model, reg_num, vechile_speed, capacity, consumption) {
+//		this->pass_num = pass_num;
+//	}
+//	void set_pass_num(int pass_num) { this->pass_num = pass_num; }
+//	int get_pass_num()const { return pass_num; }
+//	void display() const override{
+//		Vechile::display();
+//		cout << "\nPassenger number: " << pass_num << "\n";
+//	}
+//};
+//int main() {
+//	Bus* b = new Bus(80, "BMW", "ULM3894", 80, 12.99, 13.8);
+//	Truck* t = new Truck(7899.56, "Mercedes", "cuf1223", 120, 1200.64, 120.88);
+//	cout << "Bus:-\n";
+//	b->display();
+//	cout << "=====================================\n";
+//	cout << "Truck:-\n";
+//	t->display();
+//	delete b;
+//	delete t;
+//}

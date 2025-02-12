@@ -1,0 +1,292 @@
+////Assignment 6
+// Q1
+//#include <iostream>
+//#include <math.h>
+//using namespace std;
+//const double PI = 3.14159265359; // Define the PI value
+//class Circle {
+//private:
+//    double radius;
+//    string color;
+//public:
+//    Circle() {
+//        color = "Red";
+//        radius = 1.0;
+//    }
+//    Circle(double radius) {
+//        this->radius = radius;
+//        color = "Red"; // Default color if not provided
+//    }
+//    Circle(string color, double radius) {
+//        this->color = color;
+//        this->radius = radius;
+//    }
+//    void setRadius(double radius) {
+//        this->radius = radius;
+//    }
+//    void setColor(string color) {
+//        this->color = color;
+//    }
+//    double getRadius() {
+//        return radius;
+//    }
+//    string getColor() {
+//        return color;
+//    }
+//    double getArea() {
+//        return PI * pow(radius, 2);
+//    }
+//};
+//int main() {
+//    double r;
+//    string c;
+//    Circle C1;
+//    cout << "Circle 1 [radius= " << C1.getRadius() << ",color= " << C1.getColor() << "]" << endl;
+//    cout << "Circle 1 - Area: " << C1.getArea() << endl;
+//    cin >> r;
+//    Circle C2(r);
+//    cout << "Circle 2 [radius= " << C2.getRadius() << ",color= " << C2.getColor() << "]" << endl;
+//    cout << "Circle 2 - Area: " << C2.getArea() << endl;
+//    cin >> r >> c;
+//    Circle C3(c, r);
+//    cout << "Circle 3 [radius= " << C3.getRadius() << ",color= " << C3.getColor() << "]" << endl;
+//    cout << "Circle 3 - Area: " << C3.getArea() << endl;
+//
+//    return 0;
+//}
+//Q2
+//#include <iostream>
+//using namespace std;
+//class Employee {
+//private:
+//    int id, salary;
+//    string firstname, lastname;
+//public:
+//    Employee(string firstname, string lastname,int id, int salary) {
+//        this->firstname = firstname;
+//        this->lastname = lastname;
+//        this->id = id;
+//        this->salary = salary;
+//    }
+//    void setFirst(string firstname) {
+//        this->firstname = firstname;
+//    }
+//    void setLast(string lastname) {
+//        this->lastname = lastname;
+//    }
+//    void setID(int id) {
+//        this->id = id;
+//    }
+//    void setSalary(int salary) {
+//        this->salary = salary;
+//    }
+//    string getFirst() {
+//        return firstname;
+//    }
+//    string getLast() {
+//        return lastname;
+//    }
+//    int getID() {
+//        return id;
+//    }
+//    int getSalary() {
+//        return salary;
+//    }
+//    string getName() {
+//        return firstname + " " + lastname;
+//    }
+//    int getAnnualSalary() {
+//        return salary * 12;
+//    }
+//    int raiseSalary(int percent) {
+//        double inc = salary * (double(percent) / 100);
+//        salary += (int)inc;
+//        return salary;
+//    }
+//};
+//int main() {
+//    int id, salary;
+//    string firstname, lastname;
+//    cout << "First Name: "; cin >> firstname;
+//    cout << "Last Name: "; cin >> lastname;
+//    cout << "ID: "; cin >> id;
+//    cout << "Salary: "; cin >> salary;
+//    Employee e1(firstname, lastname, id, salary);
+//    e1.setSalary(salary);
+//    cout << "=============================\n";
+//    cout << "Full Name: " << e1.getName();
+//    cout << "\nYearly Income: " << e1.getAnnualSalary();
+//    cout << "\nSalary After Bonus: " << e1.raiseSalary(20);
+//    return 0;
+//}
+//Q3
+//#include <iostream>
+//using namespace std;
+//class Account {
+//private:
+//    string id, name;
+//    int balance;
+//public:
+//    // Constructor to initialize the account with a name, ID, and optional balance
+//    Account(string name, string id, int balance = 0) : name(name), id(id), balance(balance) {}
+//
+//    // Getter methods to access the account's ID, name, and balance
+//    string getID() { return id; }
+//    string getName() { return name; }
+//    int getBalance() { return balance; }
+//
+//    // Method to credit (deposit) funds into the account
+//    int credit(int amount) {
+//        return balance += amount;
+//    }
+//
+//    // Method to debit (withdraw) funds from the account, with overdraft protection
+//    int debit(int amount) {
+//        if (amount <= balance) {
+//            balance -= amount;
+//        }
+//        else {
+//            cout << "Amount exceeded balance!";
+//        }
+//        return balance;
+//    }
+//
+//    // Method to transfer funds to another account
+//    int transferTo(Account& other, int amount) {
+//        other.credit(amount);
+//        return debit(amount);
+//    }
+//};
+//
+//int main() {
+//    string name, id;
+//    string receiverName, receiverId;
+//    int choice, amount;
+//    cout << "Name: ";
+//    cin >> name;
+//    cout << "ID: ";
+//    cin >> id;
+//    Account e1(name, id);
+//    Account receiver("Ahmed", "102283");
+//    cout << "1- Add Credit\n2- Check Credit\n3- Transfer Credit\n4- Take Debit\n";
+//    do {
+//        cin >> choice;
+//    } while (!(choice == 1 || choice == 2 || choice == 3 || choice == 4));
+//    switch (choice) {
+//    case 1:
+//        cout << "Amount: ";
+//        cin >> amount;
+//        cout << "Balance= $" << e1.credit(amount) << endl;
+//        break;
+//    case 2:
+//        cout << "Balance= $" << e1.getBalance() << endl;
+//        break;
+//    case 3:
+//        cout << "Enter The receiver data:\n";
+//        cout << "Name: ";
+//        cin >> receiverName;
+//        cout << "ID: ";
+//        cin >> receiverId;
+//        receiver(receiverName, receiverId);
+//        cout << "Amount: ";
+//        cin >> amount;
+//        cout << "Balance= $" << e1.transferTo(receiver, amount) << endl;
+//        break;
+//    case 4:
+//        cout << "Amount: ";
+//        cin >> amount;
+//        cout << "Balance= $" << e1.debit(amount) << endl;
+//        break;
+//    }
+//
+//    return 0;
+//} //I cant understand the error
+//Q4
+//#include <iostream>
+//using namespace std;
+//class Time {
+//private:
+//    int hour, minute, second;
+//
+//public:
+//    Time(int h = 0, int m = 0, int s = 0) {
+//        setTime(h, m, s);
+//    }
+//
+//    int getHour() const { return hour; }
+//    int getMinute() const { return minute; }
+//    int getSecond() const { return second; }
+//
+//    void setHour(int h) {
+//        if (h >= 24)
+//            normalize();
+//        else if (h < 0)
+//            h = 0;
+//        hour = h;
+//    }
+//
+//    void setMinute(int m) {
+//        if (m >= 60)
+//            normalize();
+//        else if (m < 0)
+//            m = 0;
+//        minute = m;
+//    }
+//
+//    void setSecond(int s) {
+//        if (s >= 60)
+//            normalize();
+//        else if (s < 0)
+//            s = 0;
+//        second = s;
+//    }
+//
+//    void setTime(int h, int m, int s) {
+//        setHour(h);
+//        setMinute(m);
+//        setSecond(s);
+//        normalize();
+//    }
+//
+//    Time nextSecond()  {
+//        Time temp(hour, minute, second);
+//        temp.second++;
+//        temp.normalize();
+//        return temp;
+//    }
+//
+//    Time previousSecond()  {
+//        Time temp(hour, minute, second);
+//        temp.second--;
+//        temp.normalize();
+//        return temp;
+//    }
+//
+//    void normalize() {
+//        if (second >= 60) {
+//            minute += second / 60;
+//            second %= 60;
+//        }
+//        if (minute >= 60) {
+//            hour += minute / 60;
+//            minute %= 60;
+//        }
+//        if(hour>=24)
+//            hour %= 24;
+//    }
+//    void print() {
+//        cout << hour << " : " << minute << " : " << second;
+//    }
+//};
+//
+//int main() {
+//    Time t1(23, 59, 59);
+//    cout << t1 << endl;
+//
+//    t1 = t1.nextSecond();
+//    cout << t1 << endl;
+//
+//    t1.setHour(25);
+//
+//    return 0;
+//}//I cant understand the error

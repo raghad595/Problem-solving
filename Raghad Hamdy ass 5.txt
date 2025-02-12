@@ -1,0 +1,224 @@
+//Assignment 4 FunctionsTask
+//Q5
+//#include <iostream>
+//using namespace std;
+//void print(int n) {
+//    cout << n;
+//}
+//int main() {
+//    int x;
+//    cin >> x;
+//    print(x);
+//}
+//Q6
+//#include <iostream>
+//using namespace std;
+//float average(int n[3]) {
+//    int sum = 0;
+//    for (int i = 0; i < 3; i++)
+//        sum += n[i];
+//    return sum / (float)3;
+//}
+//int main() {
+//    int n[3];
+//    for (int i = 0; i < 3; i++)
+//        cin >> n[i];
+//    cout << "Average= " << average(n);
+//}
+//Q7
+//#include <iostream>
+//using namespace std;
+//bool prime(int n) {
+//	if (n == 2)
+//		return true;
+//	if (n == 0 || n == 1)
+//		return false;
+//	for (int i = 2; i < n; i++) {
+//		if (n % i == 0)
+//			return false;
+//	}
+//	return true;
+//}
+//int main() {
+//	int x;
+//	cin >> x;
+//	(prime(x)) ? cout << "Prime" : cout << "Not Prime";
+//}
+//Q8
+//#include <iostream>
+//using namespace std;
+//bool even(int n) {
+//	if (n % 2 == 0)
+//		return true;
+//	return false;
+//}
+//int main() {
+//	int x;
+//	cin >> x;
+//	(even(x)) ? cout << "Even" : cout << "Odd";
+//}
+//Q9
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//int main() {
+//    int size, maxval, minval;
+//    cout << "Enter Number of Cases: ";
+//    cin >> size;
+//    int* x = new int[size];
+//    for (int i = 0; i < size; i++) {
+//        cin >> x[i];
+//    }
+//    maxval = x[0]; // Initialize maxval with the first element
+//    minval = x[0]; // Initialize minval with the first element
+//    for (int i = 1; i < size; i++) {
+//        maxval = max(maxval, x[i]);
+//        minval = min(minval, x[i]);
+//    }
+//    cout << "Biggest= " << maxval << endl << "Smallest= " << minval;
+//    delete[] x;
+//    return 0;
+//}
+//Q10
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//int Cube(int n) {
+//    int res = 1;
+//    for (int i = 1; i <= 3; i++)
+//        res *= n;
+//    return res;
+//}
+//int main() {
+//    int x;
+//    cin >> x;
+//    cout << Cube(x);
+//    return 0;
+//}
+//Q11
+//#include <iostream>
+//using namespace std;
+//const double PI = 3.14;
+//void Circle(int r, float* d, float* c, float* a) {
+//    *d = 2 * r;
+//    *c = 2 * PI * r;
+//    *a = PI * r * r;
+//}
+//int main() {
+//    int x;
+//    float d, c, a;
+//    float* ptr_d = &d;
+//    float* ptr_c = &c;
+//    float* ptr_a = &a;
+//    cout << "Enter the radius of the circle: ";
+//    cin >> x;
+//    Circle(x, ptr_d, ptr_c, ptr_a);
+//    cout << "Diameter= " << d << "\nCircumference= " << c 
+//        << "\nArea= " << a;
+//    return 0;
+//}
+//Q12
+//#include <iostream>
+//using namespace std;
+//const double PI = 3.14;
+//void Divisors(int n) {
+//    for (int i = 1; i < n; i++)
+//        (n % i == 0) ? cout << i : cout << "  ";
+//}
+//int main() {
+//    int n;
+//    cin >> n;
+//    Divisors(n);
+//    return 0;
+//}
+//Q13
+//#include <iostream>
+//using namespace std;
+//const double PI = 3.14;
+//bool Divisors(int n) {
+//    if (n % 3 == 0 && n % 4 == 0)
+//        return true;
+//    return false;
+//}
+//int main() {
+//    int n;
+//    cin >> n;
+//    cout << "Does " << n << " Divides 3 & 4? ";
+//    (Divisors(n)) ? cout << "it does" : cout << "No,it does not";
+//    return 0;
+//}
+///////////////////////
+//Assignment 5 Pointers
+//Q11
+//#include <iostream>
+//using namespace std;
+//int* Arrays(int* p, int& j) {
+//    int* earr = new int[10]; 
+//    int* ep = earr;
+//    for (int i = 0; i < 10; i++) {
+//        if (*(p + i) % 2 == 0) {
+//            *(ep + j) = *(p + i);
+//            j++;
+//        }
+//    }
+//    return ep;
+//}
+//int main() {
+//    int arr[10];
+//    int j = 0;
+//    cout << "Enter 10 numbers: ";
+//    for (int i = 0; i < 10; i++) {
+//        cin >> arr[i];
+//    }
+//    int* p = arr;
+//    int* ep = Arrays(p, j);
+//    cout << "Evens: ";
+//    for (int i = 0; i < j; i++) {
+//        cout << *(ep + i) << " ";
+//    }
+//    delete[] ep; 
+//    return 0;
+//}
+//Q12
+//#include <iostream>
+//using namespace std;
+//void swap(int* x, int* y) {
+//    int tmp = *x;
+//    *x = *y;
+//    *y = tmp;
+//}
+//int main() {
+//    int a, b;
+//    int* x = &a;
+//    int* y = &b;
+//    cout << "Enter two numbers: ";
+//    cin >> a >> b;
+//    swap(x, y);
+//    cout << "After swapping: ";
+//    cout << a << " " << b << endl;
+//    return 0;
+//}
+//Q13
+//#include <iostream>
+//using namespace std;
+//int main() {
+//    int size;
+//    cin >> size;
+//    int* arr = new int[size];
+//    for (int i = 0; i < size; i++)
+//        cin >> arr[i];
+//    for (int i = 0; i < size; i++)
+//        cout << arr[i] << " ";
+//    delete[] arr; 
+//    return 0;
+//}
+//Q14
+/* *p=arr[0+1]=5
+   *arr=arr[0]=4
+   *arr+9=4+9=13 (C) */
+//Q15
+/*
+* *p=a=100, *q=b=200
+* p=q=&b -> p is assigned to q
+* a is assigned to b (c)
+*/

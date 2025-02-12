@@ -1,0 +1,172 @@
+//Assignment2
+//Q1
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	for (int i = 10; i >= 1; i--)
+//		cout << i << " ";
+//}
+//Q2
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	int x, sum = 0;float avg;
+//	for (int i = 10; i >= 1; i--) {
+//		cin >> x; sum += x;
+//	}
+//	avg = (float) sum / 10;
+//	cout << avg;
+//}
+//Q3
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	int x;
+//	cin >> x;
+//	for (int i = 1; i <=12; i++) {
+//		cout << i << "*" << x << "= " << i * x << endl;
+//	}
+//}
+//Q4
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	int n, m, sum = 0;
+//	cin >> n >> m;
+//	if (n > m) {
+//		int temp = n;
+//		n = m;
+//		m = temp;
+//	}
+//	for (int i = n; i <= m; i++) {
+//		sum += i;
+//	}
+//	cout << sum;
+//}
+//Q5
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	int x, sum = 0;
+//	cin >> x;
+//	while (x >= 0) {
+//		sum += x;
+//		cin >> x;
+//	}
+//	cout << sum;
+//}
+//Q6
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	int x, max = 0;
+//	do {
+//		cin >> x;
+//		if (x > max)
+//			max = x;
+//	} while (x >= 0);
+//	cout << max;
+//}
+//Q7
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int n, count = 0;
+//	cin >> n;
+//	if (n < 0)
+//		n = -n;
+//	while (n > 0){
+//		if (n % 2 == 0)
+//			n /= 2;
+//		else
+//			n -= 1;
+//		count++;
+//	}
+//	cout << count;
+//}
+//Q8
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	int n, x, result = 1;
+//	cout << "Input base: ";
+//	cin >> n;
+//	cout << "Input exponent: ";
+//	cin >> x;
+//	for (int i = 1; i <= x; i++)
+//		result *= n;
+//	cout << n << "^" << x << "= " << result;
+//}
+//Q9
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	int n, count = 0;
+//	for (int i = 10; i >= 1; i--) {
+//		cin >> n;
+//		if (n % 2 != 0)
+//			count++;
+//	}
+//	cout << count;
+//}
+//Q10
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	int x, y, r, gcd;
+//	cin >> x >> y;
+//	if (x < y) {
+//		int temp = x; x = y; y = temp;
+//	}
+//	do {
+//		r = x - (int)(x / y) * y;
+//		x = y; y = r;
+//		if (r != 0)
+//			gcd = r;
+//	} while (r != 0);
+//	cout << gcd;
+//}
+//Q11
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	int x, max1, max2;
+//	x = 1; max1 = max2 = x;
+//	for (int i = 1; i <= 10; i++) {
+//		cin >> x;
+//		if (x > max1) {
+//			max2 = max1;
+//			max1 = x;
+//		}
+//		else if (x > max2) {
+//			max2 = x;
+//		}
+//	}
+//	cout << max2;
+//}
+//Bounce
+//Q1
+//#include<iostream>
+//using namespace std;
+//void main() {
+//	float dec; string binarynum = "";
+//	cout << "Input a decimal number: ";
+//	cin >> dec;
+//	float decpart = dec - (int)dec;
+//	int intpart = (int)dec;
+//	do{
+//		if (intpart % 2 == 0)
+//			cout << 0;
+//		else
+//			cout << 1;
+//		intpart /= 2;
+//	} while (intpart != 0.0);
+//	cout << ". ";
+//	for (int i = 0; i < 3; i++) {
+//		if (int(decpart * 2) == 0)
+//			cout << 0;
+//		else
+//			cout << 1;
+//		decpart *= 2;
+//	}
+//}//Note: I know that the intpart must be reversed but i dont know how

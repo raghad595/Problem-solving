@@ -1,0 +1,374 @@
+//Assignment 7
+//Q1
+//#include <iostream>
+//using namespace std;
+//class Circle {
+//protected:
+//	double radius;
+//	string color;
+//public:
+//	Circle() {
+//		color = "red";
+//		radius = 1.0;
+//	}
+//	Circle(double radius) {
+//		this->radius = radius;
+//	}
+//	Circle(double radius, string color) {
+//		this->color = color;
+//		this->radius = radius;
+//	}
+//	void set_radius(double radius) {
+//		this->radius = radius;
+//	}
+//	void set_color(string color) {
+//		this->color = color;
+//	}
+//	double get_radius() {
+//		return radius;
+//	}
+//	string get_color() {
+//		return color;
+//	}
+//	double get_Area() {
+//		return 3.14 * radius * radius;
+//	}
+//	void display_info() {
+//		cout << "r= " << radius << "\nColor: " << color << "\nArea= " << get_Area();
+//	}
+//};
+//class Cylinder :public Circle {
+//private:
+//	double height;
+//public:
+//	Cylinder() {
+//		height = 1.0;
+//	}
+//	Cylinder(double radius) :Circle(radius) {
+//		
+//	}
+//	Cylinder(double radius, double height) :Circle(radius) {
+//		this->height = height;
+//	}
+//	Cylinder(double radius, string color, double height) :Circle(radius, color) {
+//		this->height = height;
+//	}
+//	void set_Height(double height) {
+//		this->height = height;
+//	}
+//	double get_Height() {
+//		return height;
+//	}
+//	double get_Volume() {
+//		return get_Area() * height;
+//	}
+//	void display_info() {
+//		Circle::display_info();
+//		cout << "\nHeight= " << height << "\nVolume= " << get_Volume();
+//	}
+//};
+//int main() {
+//	Cylinder* c = new Cylinder(5, "blue", 10);
+//	c->display_info();
+//}
+//Q2
+//#include <iostream>
+//using namespace std;
+//class Customer {
+//private:
+//	int id, discount;
+//	string name;
+//public:
+//	Customer() {
+//		id = discount = 0;
+//		name = " ";
+//	}
+//	Customer(int id, int discount, string name) {
+//		this->id = id;
+//		this->discount = discount;
+//		this->name = name;
+//	}
+//	void set_Discount(int discount) {
+//		this->discount = discount;
+//	}
+//	int get_ID() {
+//		return id;
+//	}
+//	int get_Discount() {
+//		return discount;
+//	}
+//	string get_name() {
+//		return name;
+//	}
+//	void display_info() {
+//		cout << "Cust. Name: " << name << "\nCust. ID: " << id << "\nDiscount: " << discount << "%\n";
+//	}
+//};
+//class Invoice {
+//private:
+//	int id;
+//	double amount;
+//	Customer* customer;
+//public:
+//	Invoice(int id,double amount,Customer* customer) {
+//		this->id = id = id;
+//		this->amount = amount;
+//		this->customer = customer;
+//	}
+//	void set_Amount(double amount) {
+//		this->amount = amount;
+//	}
+//	void set_customer(Customer* customer) {
+//		this->customer = customer;
+//	}
+//	int get_ID() {
+//		return id;
+//	}
+//	Customer* get_Customer() {
+//		return customer;
+//	}
+//	double get_Amount() {
+//		return amount;
+//	}
+//	int getCustomer_ID() {
+//		return customer->get_ID();
+//	}
+//	int getCustomer_Discount() {
+//		return customer->get_Discount();
+//	}
+//	string getCustomer_Name() {
+//		return customer->get_name();
+//	}
+//	double getAmount_AfterDiscount() {
+//		double sale = amount * (getCustomer_Discount() / (double)100);
+//		return amount - sale;
+//	}
+//	void display_info() {
+//		customer->display_info();
+//		cout << "ID: " << id << "\nAmount: " << amount << "\nPrice After Discount: "
+//			<< getAmount_AfterDiscount() << endl;
+//	}
+//};
+//int main() {
+//	Customer* c = new Customer(11333, 20, "Raghad");
+//	Invoice* i = new Invoice(100141, 500.50, c);
+//	i->display_info();
+//	delete c;
+//	delete i;
+//}
+//Q3
+//#include <iostream>
+//#include <string>
+//using namespace std;
+//class Person {
+//protected:
+//    string firstname, lastname;
+//public:
+//    Person() {
+//        firstname = lastname = " ";
+//    }
+//    Person(string firstname, string lastname) {
+//        this->firstname = firstname;
+//        this->lastname = lastname;
+//    }
+//    void setName(string firstname, string lastname) {
+//        this->firstname = firstname;
+//        this->lastname = lastname;
+//    }
+//    string getFirstName() {
+//        return firstname;
+//    }
+//    string getLastName() {
+//        return lastname;
+//    }
+//    void display_info() {
+//        cout << "Full Name: " << firstname << " " << lastname;
+//    }
+//};
+//class Doctor : public Person {
+//private:
+//    string speciality;
+//public:
+//    Doctor() {
+//        speciality = " ";
+//    }
+//    Doctor(string firstname, string lastname, string speciality) : Person(firstname, lastname) {
+//        this->speciality = speciality;
+//    }
+//    void setSpeciality(string speciality) {
+//        this->speciality = speciality;
+//    }
+//    string getSpeciality() {
+//        return speciality;
+//    }
+//    void display_info() {
+//        Person::display_info();
+//        cout << "\nSpeciality: " << speciality;
+//    }
+//};
+//
+//class Date {
+//private:
+//    int dMonth, dday, dYear;
+//
+//public:
+//    Date() {
+//        dday = dMonth = 1;
+//        dYear = 2000;
+//    }
+//    Date(int dMonth, int dday, int dYear) {
+//        this->dday = dday;
+//        this->dMonth = dMonth;
+//        this->dYear = dYear;
+//    }
+//    void setDate(int dMonth, int dday, int dYear) {
+//        this->dday = dday;
+//        this->dMonth = dMonth;
+//        this->dYear = dYear;
+//    }
+//    string toString() {
+//        string months[13] = { " ", "JAN.", "FEB.", "MAR.", "APR.", "MAY.", "JUN.", "JUL.", "AUG.", "SEP.", "OCT.", "NOV.", "DEC." };
+//        string dayindex[5] = { "", "st", "nd", "rd", "th" };
+//        string mon, day;
+//        for (int i = 1; i <= 12; i++) {
+//            if (dMonth == i) {
+//                mon = months[i];
+//            }
+//        }
+//        if (dday >= 11 && dday <= 13) {
+//            day = "th";
+//        }
+//        else {
+//            day = dayindex[dday % 10];
+//        }
+//        return to_string(dday) + day + " of " + mon + " ";
+//    }
+//    int getMonth() { return dMonth; }
+//    int getDay() { return dday; }
+//    int getYear() { return dYear; }
+//    void display() {
+//        cout << dday << " / " << dMonth << " / " << dYear << endl;
+//        cout << toString() << dYear << endl;
+//    }
+//};
+//
+//class Patient {
+//private:
+//    int patientid, age;
+//    Date dob, admitDate, dischargeDate;
+//    Doctor physician;
+//
+//public:
+//    Patient(int patientid, int age, Date dob, Date admitDate, Date dischargeDate, Doctor physician) {
+//        this->patientid = patientid;
+//        this->age = age;
+//        this->dob = dob;
+//        this->admitDate = admitDate;
+//        this->dischargeDate = dischargeDate;
+//        this->physician = physician;
+//    }
+//    Date get_AdmitD() {
+//        return admitDate;
+//    }
+//    Date get_DischargeD() {
+//        return dischargeDate;
+//    }
+//    void set_DischargeD() {
+//        this->dischargeDate = dischargeDate;
+//    }
+//    void set_physician() {
+//        this->physician = physician;
+//    }
+//    Doctor get_physician() {
+//        return physician;
+//    }
+//    void display_info() {
+//        cout << "Patient ID: " << patientid << "\nAge: " << age;
+//        cout << "\nDoctor:-\n";
+//        physician.display_info();
+//        cout << "\nDOB: ";
+//        dob.display();
+//        cout << "Admit Date: ";
+//        admitDate.display();
+//        cout << "Discharge Date: ";
+//        dischargeDate.display();
+//    }
+//};
+//int main() {
+//    Doctor doc("Ahmed", "Ammar", "physiciatrist");
+//    Date dob(12, 29, 1983);
+//    Date adD(8, 12, 2014);
+//    Date disD(5, 14, 2022);
+//    Patient p(100122, 41, dob, adD, disD, doc);
+//    p.display_info();
+//}
+//it does'nt print toString or discharge or admit date & idont know why
+//Q4
+//Composition: Composition is a design technique where a class contains an object of another class as a member.
+//- This relationship implies a "has-a" relationship, where one class is composed of one or more instances of another class.
+//- Example : Declaring an object of a class as a member variable within another class, such as a Car class containing an Engine object.
+//class Engine {
+//private:
+//	string name, type;
+//	int id;
+//public:
+//	Engine() {
+//		name = type = "";
+//		id = 0;
+//	}
+//	Engine(string name, string type,int id) {
+//		this->name = name;
+//		this->type = type;
+//		this->id = id;
+//	}
+//};
+//class Car {
+//private:
+//	Engine e;
+//	string name;
+//public:
+//	Car() {
+//		name = " ";
+//	}
+//	Car(Engine e1, string n) {
+//		e = e1;
+//		name = n;
+//	}
+//};
+//Inheritance: is a mechanism in object - oriented programming where a class (subclass)derives attributes and methods from another class (superclass).
+//-The subclass inherits the properties and behaviors of the superclass and can also add additional attributes, methods, or behavior.
+//- Example : Creating a subclass called Dog that inherits from a superclass Animal.
+//The Dog class inherits properties like color and behavior like eat() from the Animal class and can also have additional properties or
+//methods specific to dogs.
+//class Animal {
+//protected:
+//	string type;
+//	int age;
+//public:
+//	Animal() {
+//		type = " ";
+//		age = 0;
+//	}
+//	Animal(string t,int a) {
+//		type = t;
+//		age = a;
+//	}
+//	void print() {
+//		cout << "Type: " << type << "\nAge: " << age;
+//	}
+//};
+//class Dog:public Animal {
+//private:
+//	string name;
+//public:
+//	Dog() {
+//		name = " ";
+//	}
+//	Dog(string type,int age,string n):Animal(type,age) {
+//		name = n;
+//	}
+//	void print() {
+//		Animal::print();
+//		cout << "Name: " << name;
+//	}
+//};

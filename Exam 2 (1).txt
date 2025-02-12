@@ -1,0 +1,311 @@
+//Exam2
+//Q1
+//1-Encapsulation: Encapsulation is one of the fundamental concepts in object-oriented programming that allows you to 
+// restrict access to certain components within a class. By using encapsulation, you can hide the internal 
+// state of an object and only allow access to it through a public interface.
+//Ex:-
+//#include <iostream>
+//using namespace std;
+//class Student {
+//private:
+//    string name;
+//    int birth_year;
+//    float gpa;
+//public:
+//    Student() {}
+//    Student(string name, int birth_year, float gpa) {
+//        this->name = name;
+//        this->birth_year = birth_year;
+//        this->gpa = gpa;
+//    }
+//    void setName(string name){ this->name = name; }
+//    void setDOB(int birth_year) { this->birth_year = birth_year; }
+//    void setGPA(float gpa) { this->gpa = gpa; }
+//    string getName() { return name; }
+//    int getDOB() { return birth_year; }
+//    float getGPA() { return gpa; }
+//    ~Student() {
+//        cout << "End of Student\n";
+//    }
+//};
+//int main() {
+//    Student s("Ahmed", 2004, 3.9);
+//    cout << s.getName() << " ,born in " << s.getDOB() << " Got " << s.getGPA() << endl;
+//}
+//2-Inheritance: the Second OOP concepts that allows us to create new classes from existing classes,
+//the child class will be able to inherit all parent data and methods and could modify the
+//inherited parent’s methods
+//Ex:-
+//#include <iostream>
+//using namespace std;
+//class Person {
+//protected:
+//    string name;
+//    int birth_year;
+//public:
+//    Person() {}
+//    Person(string name, int birth_year) {
+//        this->name = name;
+//        this->birth_year = birth_year;
+//    }
+//    void setName(string name) { this->name = name; }
+//    void setDOB(int birth_year) { this->birth_year = birth_year; }
+//    string getName() { return name; }
+//    int getDOB() { return birth_year; }
+//    ~Person() {}
+//};
+//class Student:public Person {
+//private:
+//    float gpa;
+//public:
+//    Student() {}
+//    Student(string name, int birth_year, float gpa):Person(name, birth_year) {
+//        this->gpa = gpa;
+//    }
+//    void setGPA(float gpa) { this->gpa = gpa; }
+//    float getGPA() { return gpa; }
+//    ~Student() {
+//        cout << "End of Student\n";
+//    }
+//};
+//int main() {
+//    Student s("Ahmed", 2004, 3.9);
+//    cout << s.getName() << " ,born in " << s.getDOB() << " Got " << s.getGPA() << endl;
+//}
+//3-Abstraction: -Third OOP Concept, It is an Interface describes the behavior of the class without any
+//implementation of that class, it provides the essential data without giving any details.
+//#include <iostream>
+//using namespace std;
+//class Person {
+//protected:
+//    string name;
+//    int birth_year;
+//public:
+//    Person() {}
+//    Person(string name, int birth_year) {
+//        this->name = name;
+//        this->birth_year = birth_year;
+//    }
+//    void setName(string name) { this->name = name; }
+//    void setDOB(int birth_year) { this->birth_year = birth_year; }
+//    string getName() { return name; }
+//    int getDOB() { return birth_year; }
+//    virtual void print() = 0;
+//    ~Person() {}
+//};
+//class Student :public Person {
+//private:
+//    float gpa;
+//public:
+//    Student() {}
+//    Student(string name, int birth_year, float gpa) :Person(name, birth_year) {
+//        this->gpa = gpa;
+//    }
+//    void setGPA(float gpa) { this->gpa = gpa; }
+//    float getGPA() { return gpa; }
+//    ~Student() {
+//        cout << "End of Student\n";
+//    }
+//    void print() {
+//        cout << name << " ,born in " << birth_year << " Got " << gpa << endl;
+//    }
+//};
+//int main() {
+//    Student s("Ahmed", 2004, 3.9);
+//    s.print();
+//}
+//4-polymorphism: The fourth OOP concept that refers to the ability of
+/*object to take multiple forms, so objects with common
+parent may have the same name of function but with
+different behaviors at run time*/
+//#include <iostream>
+//using namespace std;
+//class Person {
+//protected:
+//    string name;
+//    int birth_year;
+//public:
+//    Person() {}
+//    Person(string name, int birth_year) {
+//        this->name = name;
+//        this->birth_year = birth_year;
+//    }
+//    void setName(string name) { this->name = name; }
+//    void setDOB(int birth_year) { this->birth_year = birth_year; }
+//    string getName() { return name; }
+//    int getDOB() { return birth_year; }
+//    virtual void print() = 0;
+//    ~Person() {}
+//};
+//class Student :public Person {
+//private:
+//    float gpa;
+//public:
+//    Student() {}
+//    Student(string name, int birth_year, float gpa) :Person(name, birth_year) {
+//        this->gpa = gpa;
+//    }
+//    void setGPA(float gpa) { this->gpa = gpa; }
+//    float getGPA() { return gpa; }
+//    ~Student() {
+//        cout << "End of Student\n";
+//    }
+//    void print() {
+//        cout << name << " ,born in " << birth_year << " Got " << gpa << endl;
+//    }
+//};
+//int main() {
+//    Student* s = new Student("Ahmed", 2004, 3.9);
+//    s->print();
+//}
+///////
+//Q2
+/*-Public: Provides unrestricted access and defines the interface of the class. Access in all program
+- Private : Restricts access to within the class, ensuring data encapsulation and security. Access in class only
+- Protected : Similar to private, but accessible by derived classes, facilitating inheritance and polymorphism. Access in base & derrived class only
+////////*/
+//Q3
+//#include <iostream>
+//#include <string>
+//using namespace std;
+//int Divisors(int x, int y) {
+//    if (y == 0) {
+//        throw string("Division by zero error");
+//    }
+//    else {
+//        return x / y;
+//    }
+//}
+//int main() {
+//    int a = 10;
+//    int b = 0;
+//    try {
+//        cout << "Result of division: " << Divisors(a, b) << endl;
+//    }
+//    catch (string errorMessage) {
+//        cout << "Exception caught: " << errorMessage << endl;
+//    }
+//    return 0;
+//}
+//Q4
+//#include <iostream>
+//using namespace std;
+//class Student {
+//public:
+//    template <typename T>
+//    T Max(T a, T b) {
+//        return (a > b) ? a : b;
+//    }
+//};
+//int main() {
+//    Student student; 
+//    cout << "Maximum of 10 and 20 is: " << student.Max(10, 20) << endl;
+//    cout << "Maximum of 2.5 and 5.7 is: " << student.Max(2.5, 5.7) << endl;
+//    return 0;
+//}
+//////
+//Q5
+/*1- Overloading: Overloading refers to the ability to define multiple functions in the same scope with the same name but with different number of parameters or different types of parameters.
+- Compile-Time: Overloading is resolved at compile time, based on the number and types of arguments passed to the function.
+(Overriding must have the same method signature (same method name, parameters, and return type)
+- Example:*/
+/*int add(int a, int b);
+double add(double a, double b);
+*/
+/*2- Overriding: Overriding refers to the ability of a subclass to provide a specific implementation of a method that is already provided by its parent class.
+It usually involves inheritance, where a subclass redefines a method declared in its superclass.
+- Run-Time: Overriding is resolved at runtime based on the actual object type.
+- Example: */
+//#include <iostream>
+//using namespace std;
+//class Shape {
+//public:
+//    virtual void draw() {
+//        cout << "Drawing a shape." << endl;
+//    }
+//};
+//class Rectangle : public Shape {
+//public:
+//    void draw() override {
+//        cout << "Drawing a rectangle." << endl;
+//    }
+//};
+//class Circle : public Shape {
+//public:
+//    void draw() override {
+//        cout << "Drawing a circle." << endl;
+//    }
+//};
+//int main() {
+//    Shape* shape1 = new Shape();
+//    Shape* shape2 = new Rectangle();
+//    Shape* shape3 = new Circle();
+//    shape1->draw();
+//    shape2->draw(); 
+//    shape3->draw(); 
+//    delete shape1;
+//    delete shape2;
+//    delete shape3;
+//    return 0;
+//}
+//////
+//Q6
+/*#include<iostream>
+using namespace std;
+class Point2D {
+protected:
+	float x, y;
+public:
+	Point2D() {
+		x = y = 0.0;
+	}
+	Point2D(float x, float y) {
+		this->x = x;
+		this->y = y;
+	}
+	void setX(float x){ this->x = x; }
+	void setY(float y) { this->y = y; }
+	float getX() { return x; }
+	float getY() { return y; }
+	void setXY(float x, float y) {
+		setX(x);
+		setY(y);
+	}
+	float* getXY() {
+		static float p[2];
+		p[0] = x;
+		p[1] = y;
+		return p;
+	}
+};
+class Point3D:public Point2D {
+private:
+	float z;
+public:
+	Point3D():Point2D() {
+		z = 0.0;
+	}
+	Point3D(float x, float y,float z):Point2D(x,y){
+		this->z = z;
+	}
+	void setZ(float z) { this->z = z; }
+	float getZ() { return z; }
+	void setXYZ(float x, float y,float z) {
+		Point2D::setXY(x, y);
+		setZ(z);
+	}
+	float* getXYZ() {
+		static float p[3];
+		const float* xy = Point2D::getXY();
+		p[0] = xy[0];
+		p[1] = xy[1];
+		p[2] = z;
+		return p;
+	}
+};
+int main() {
+	Point3D point3D(1.0, 2.0, 3.0);
+	const float* values = point3D.getXYZ();
+	cout << "X: " << values[0] << ", Y: " << values[1] << ", Z: " << values[2] << endl;
+	return 0;
+}*/

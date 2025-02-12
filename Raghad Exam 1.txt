@@ -1,0 +1,203 @@
+Q1: Difference between switch and if conditions:-
+1) Switch:-
+1- can be used to compare one variable with many constant cases
+2- can't be used to compare 2 variables
+3- can't be nested
+Ex: code to match passwords:-
+#include <iostream>
+using namespace std;
+int main()
+{
+    const int x = 1999; //if we removed "const" it will show error
+    int y;
+    cin >> y;
+    switch (y) {
+    case x:
+        cout << "true";
+        break;
+    default:
+        cout << "false";
+    }
+
+}
+
+2) If condition:-
+1- can be used to compare 2 variables
+2- can be nested 
+3- can be used with comparison & logical operators
+Ex: code to find max between 2 variables:-
+#include <iostream>
+using namespace std;
+int main()
+{
+    int x, y;
+    cin >> x >> y;
+    if (x > y)
+        cout << x;
+    else
+        cout << y;
+}
+------------------------------------------------------------------------
+Q2: do & for loop:-
+1) do-while: used to make a set of operations at least one time.
+Ex: checking input:-
+#include <iostream>
+using namespace std;
+int main()
+{
+    int x, sum = 0;
+    do {
+        cin >> x;
+        sum += x;
+    } while (x != 0);
+    cout << sum;
+} //program will read new variables till user enters 0
+
+2) for-loop: used to repeat a set of operations number of times.
+Ex: printing countdown
+#include <iostream>
+using namespace std;
+int main()
+{
+    for (int i = 10; i > 0; i--)
+        cout << i << "...";
+    cout << "Happy new year";
+}
+---------------------------------------
+Q3: Data types in c:-
+1) integers: int, short int, long int, long long int
+2) decimals: float, double, long double
+3) text: char, string (char* s)
+4) cases: bool (Boolean)
+--------------------------------------
+Q4: array Function:- 
+#include <iostream>
+using namespace std;
+float average(int arr[], int len) {
+    int sum = 0;
+    float avg;
+    for (int i = 0; i < len; i++) {
+        sum += arr[i];
+    }
+    avg = (float) sum / len;
+    return avg;
+}
+int main()
+{
+    int length, arr[100];
+    cin >> length;
+    cout << "Enter Array Elements: ";
+    for (int i = 0; i < length; i++)
+        cin >> arr[i];
+    cout << "Average= " << average(arr, length);
+}
+-------------------------------------------------------
+Q5: MAX Function:-
+#include <iostream>
+using namespace std;
+int max(int x, int y, int z) {
+    int max = x;
+    if (y > max)
+        max = y;
+    if (z > max)
+        max = z;
+    return max;
+    //return max(max(x,y), z);
+}
+int main()
+{
+    int a, b, c;
+    cin >> a >> b >> c;
+    cout << max(a, b, c);
+}
+---------------------------------------
+Q6: Pointers Functions:-
+#include <iostream>
+using namespace std;
+void swap(int* x, int* y) {
+    int tmp = *x;
+    *x = *y;
+    *y = tmp;
+}
+int main()
+{
+    int a, b;
+    cin >> a >> b;
+    int* x = &a;
+    int* y = &b;
+    cout << *x << " " << *y << endl;
+    swap(*x, *y);
+    cout << *x << " " << *y << endl;
+}
+--------------------------------------------
+Q7: find mistake: mistake in the inner for-loop (infinity loop)
+for (int j = 1; j < 5; j++) {
+    if (i == j)
+        cout << i << " ";
+    cout << j << endl;
+}
+---------------------------------------------------
+Q8: tracing:- 
+
+num=5,
+i=1, i!= num, 
+     j=1 i=j, j=1                      *    4 spaces 
+     j=2 i!=j j!=1                     **   3 spaces
+     j=3 i!=j j!=1                     * *  2 spaces
+     j=4 i!=j j!=1                     *  * 1 space
+     j=5 i!=j j!=1 endl                ***** 0 space
+i=2, i!= num, 
+     j=1 i!=j, j=1                      
+     j=2 i=j j!=1
+     j=3 i!=j j!=1
+     j=4 i!=j j!=1
+     j=5 i!=j j!=1 endl
+i=3, i!= num,
+     j=1 i!=j, j=1
+     j=2 i!=j j!=1
+     j=3 i=j j!=1
+     j=4 i!=j j!=1
+     j=5 i!=j j!=1 endl
+i=4, i!= num,
+     j=1 i!=j, j=1
+     j=2 i!=j j!=1
+     j=3 i!=j j!=1
+     j=4 i=j j!=1
+     j=5 i!=j j!=1 endl
+i=5, i = num endl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

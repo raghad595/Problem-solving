@@ -1,0 +1,270 @@
+//Assignment 1
+//Q1
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x;
+//	cout << "Enter number: ";
+//	cin >> x;
+//	cout << x;
+//	return 0;
+//}
+//Q2
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x, y, z;
+//	cout << "Please enter first number: ";
+//	cin >> x;
+//	cout << "Please enter second number: ";
+//	cin >> y;
+//	cout << "Please enter third number: ";
+//	cin >> z;
+//	cout << "Summation of 3 integers is " << x + y + z;
+//	return 0;
+//}
+//Q3
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x, y, z;
+//	cout << "Please enter first number: ";
+//	cin >> x;
+//	cout << "Please enter second number: ";
+//	cin >> y;
+//	cout << "Please enter third number: ";
+//	cin >> z;
+//	cout << "The average= " << float(x + y + z) / 3;
+//	return 0;
+//}
+//Q4
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int w, h, per,area;
+//	cout << "Width= ";
+//	cin >> w;
+//	cout << "Height= ";
+//	cin >> h;
+//	cout << "The Perimeter= " << (w + h) * 2 << endl;
+//	cout << "The area= " << w * h;
+//	return 0;
+//}
+//Q5
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x, sum = 0;
+//	cout << "Enter 3 digit number: ";
+//	cin >> x;
+//	for (int i = 1; i <= 3; i++) {
+//		sum += x % 10;
+//		x /= 10;
+//	}
+//	cout << "Sum= " << sum;
+//	return 0;
+//}
+//Q6
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int h = 0, m = 0, s;
+//	cout << "Enter Seconds: ";
+//	cin >> s;
+//	m += s / 60;
+//	s %= 60;
+//	h += m / 60;
+//	m %= 60;
+//	h %= 24;
+//	cout << "H:M:S -  " << h << ":" << m << ":" << s;
+//	return 0;
+//}
+//Q7
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x;
+//	cout << "Enter number: ";
+//	cin >> x;
+//	if (x >= 0)
+//		cout << "positive";
+//	else
+//		cout << "negative";
+//	return 0;
+//}
+//Q8
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x;
+//	cout << "Enter digit from 1 to 5: ";
+//	cin >> x;
+//	if (x == 1)
+//		cout << "One";
+//	else if (x == 2)
+//		cout << "Two";
+//	else if (x == 3)
+//		cout << "Three";
+//	else if (x == 4)
+//		cout << "Four";
+//	else if (x == 5)
+//		cout << "Five";
+//	else
+//		cout << "> 5!";
+//	return 0;
+//}
+//Q9
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x, sum = 0;
+//	cout << "Enter 5 number: ";
+//	for (int i = 1; i <= 5; i++) {
+//		cin >> x;
+//		if(x%2!=0)
+//			sum += x;
+//	}
+//	cout << "Sum of all odd values= " << sum;
+//	return 0;
+//}
+//Q10
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x;
+//	cout << "Enter a year: ";
+//	cin >> x;
+//	if (x % 400 == 0 || x % 4 == 0)
+//		cout << "Leap year!" << endl;
+//	else
+//		cout << "Not a leap year!" << endl;
+//	return 0;
+//}
+//Q11
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x;
+//	cout << "Enter birth year: ";
+//	cin >> x;
+//	int age = 2024 - x;
+//	if (age>=18)
+//		cout << "Adult!" << endl;
+//	else
+//		cout << "Teenager!" << endl;
+//	return 0;
+//}
+//Q12
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x;
+//	cout << "Enter Mark: ";
+//	cin >> x;
+//	if (x < 25)
+//		cout << "F" << endl;
+//	else if (x < 45)
+//		cout << "E" << endl;
+//	else if (x < 50)
+//		cout << "D" << endl;
+//	else if (x < 60)
+//		cout << "C" << endl;
+//	else if (x < 80)
+//		cout << "B" << endl;
+//	else
+//		cout << "A" << endl;
+//	return 0;
+//}
+//Q13
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x;
+//	cout << "Insert a number between 1 to 12 to get month name: ";
+//	cin >> x;
+//	switch (x) {
+//	case 1:
+//		cout << "January\n";
+//		break;
+//	case 2:
+//		cout << "February\n";
+//		break;
+//	case 3:
+//		cout << "March\n";
+//		break;
+//	case 4:
+//		cout << "April\n";
+//		break;
+//	case 5:
+//		cout << "May\n";
+//		break;
+//	case 6:
+//		cout << "June\n";
+//		break;
+//	case 7:
+//		cout << "July\n";
+//		break;
+//	case 8:
+//		cout << "August\n";
+//		break;
+//	case 9:
+//		cout << "September\n";
+//		break;
+//	case 10:
+//		cout << "October\n";
+//		break;
+//	case 11:
+//		cout << "November\n";
+//		break;
+//	case 12:
+//		cout << "December\n";
+//		break;
+//	}
+//	return 0;
+//}
+//Q14
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x;
+//	cout << "Enter number: ";
+//	cin >> x;
+//	if (x % 2 == 0)
+//		cout << "even\n";
+//	else
+//		cout << "Odd\n";
+//	return 0;
+//}
+//Q15
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	char x;
+//	cout << "Enter Character: ";
+//	cin >> x;
+//	if (x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u')
+//		cout << "Vowel\n";
+//	else
+//		cout << "constant\n";
+//	return 0;
+//}
+//Q16
+//#include<iostream>
+//using namespace std;
+//int main() {
+//	int x, y, z, max, min;
+//	cout << "Enter 3 numbers: ";
+//	cin >> x >> y >> z;
+//	max = min = x;
+//	if (max < y)
+//		max = y;
+//	if(min>y)
+//		min = y;
+//	if (max < z)
+//		max = z;
+//	if (min > z)
+//		min = z;
+//	cout << "max element= " << max << endl;
+//	cout << "min element= " << min << endl;
+//	return 0;
+//}

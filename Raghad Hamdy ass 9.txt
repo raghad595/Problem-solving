@@ -1,0 +1,104 @@
+// Assignment 9
+//Q1
+//#include <iostream>
+//using namespace std;
+//template <typename T>
+//T MAX(T x, T y) {
+//    return (x > y) ? x : y;
+//}
+//int main()
+//{
+//    cout << MAX<int>(3, 7) << endl;
+//    cout << MAX<double>(3.5, 3.8);
+//}
+//Q2
+//#include <iostream>
+//using namespace std;
+//template <typename T>
+//void Swap(T &x, T &y) {
+//    T tmp = x;
+//    x = y;
+//    y = tmp;
+//}
+//int main()
+//{
+//    int x = 3, y = 7;
+//    cout << x << "  " << y << endl;
+//    Swap<int>(x, y);
+//    cout << x << "  " << y << endl;
+//    double a = 3.5, b = 3.8;
+//    cout << a << "  " << b << endl;
+//    Swap<double>(a, b);
+//    cout << a << "  " << b;
+//}
+//Q3
+//#include <iostream>
+//using namespace std;
+//template <typename T>
+//T Add(T x, T y) {
+//    return x + y;
+//}
+//template <typename T>
+//T Subtract(T x, T y) {
+//    return x - y;
+//}
+//template <typename T>
+//T Multiply(T x, T y) {
+//    return x * y;
+//}
+//template <typename T>
+//T Divide(T x, T y) {
+//    return x / y;
+//}
+//template <typename T>
+//int main() {
+//    T x, y;
+//    char op;
+//    cin >> x >> op >> y;
+//    switch (op) {
+//    case '+':
+//        cout << Add(x, y);
+//        break;
+//    case '-':
+//        cout << Subtract(x, y);
+//        break;
+//    case '*':
+//        cout << Multiply(x, y);
+//        break;
+//    case '/':
+//        cout << Divide(x, y);
+//        break;
+//    default:
+//        cout << "Invalid operator";
+//        break;
+//    }
+//    return 0;
+//}
+//i dont understand the error
+//Q4
+//#include <iostream>
+//#include <stdexcept>
+//using namespace std;
+//int divide(int x, int y) {
+//    if (y == 0) {
+//        throw invalid_argument("Division by zero is not allowed!");
+//    }
+//    if (y < 0) {
+//        throw invalid_argument("Negative divider is not allowed!");
+//    }
+//    else
+//        return x / y;
+//}
+//int main() {
+//    int x, y;
+//    cout << "Enter two integers (x y): ";
+//    cin >> x >> y;
+//    try {
+//        int result = divide(x, y);
+//        cout << "Result of division: " << result << endl;
+//    }
+//    catch (const invalid_argument& e) {
+//        cout << "Exception: " << e.what() << endl;
+//    }
+//    return 0;
+//}
